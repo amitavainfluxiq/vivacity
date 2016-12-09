@@ -1,0 +1,5 @@
+tagaction[header]=link;
+tagaction[body_header]=copy;
+tagaction[body]=copy;
+tagaction[body_footer]=copy;
+tagaction[footer]=link;

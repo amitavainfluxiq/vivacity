@@ -1,0 +1,15 @@
+# Info File for Default Skin
+
+# Name = The name of the skin
+name=Dashboard;
+
+# Description: A simple description of the theme
+description=Default System Theme... available for overriding.
+
+This is a multiple Line entry!!!;
+
+# CSS: The name (or names, comma seperated) of the css files to be included on every page of this theme
+css=styles.css;
+theme_version = 2.1;
+
+

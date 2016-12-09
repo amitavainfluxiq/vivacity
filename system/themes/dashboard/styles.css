@@ -1,0 +1,147 @@
+@font-face {
+    font-family: 'RalewayBlack';
+    src: url('../fonts/Raleway-Black.eot');
+    src: url('../fonts/Raleway-Black.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Raleway-Black.woff') format('woff'),
+    url('../fonts/Raleway-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RalewayBold';
+    src: url('../fonts/Raleway-Bold.eot');
+    src: url('../fonts/Raleway-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Raleway-Bold.woff') format('woff'),
+    url('../fonts/Raleway-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'RalewaySemiBold';
+    src: url('../fonts/Raleway-SemiBold.eot');
+    src: url('../fonts/Raleway-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Raleway-SemiBold.woff') format('woff'),
+    url('../fonts/Raleway-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RalewayExtraBold';
+    src: url('../fonts/Raleway-ExtraBold.eot');
+    src: url('../fonts/Raleway-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Raleway-ExtraBold.woff') format('woff'),
+    url('../fonts/Raleway-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('../fonts/OpenSans-Bold.eot');
+    src: url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Bold.woff') format('woff'),
+    url('../fonts/OpenSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSansSemibold';
+    src: url('../fonts/OpenSans-Semibold.eot');
+    src: url('../fonts/OpenSans-Semibold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Semibold.woff') format('woff'),
+    url('../fonts/OpenSans-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'open_sansextrabold';
+    src: url('../fonts/opensans-extrabold-webfont.woff2') format('woff2'),
+    url('../fonts/opensans-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'AndrogyneMedium';
+    src: url('../fonts/AndrogyneMedium.eot');
+    src: url('../fonts/AndrogyneMedium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AndrogyneMedium.woff') format('woff'),
+    url('../fonts/AndrogyneMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SegoePrintBold';
+    src: url('../fonts/SegoePrint-Bold.eot');
+    src: url('../fonts/SegoePrint-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/SegoePrint-Bold.woff') format('woff'),
+    url('../fonts/SegoePrint-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoBlack';
+    src: url('../fonts/Roboto-Black.eot');
+    src: url('../fonts/Roboto-Black.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Roboto-Black.woff') format('woff'),
+    url('../fonts/Roboto-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'MyriadPro-Regular';
+    src: url('../fonts/MyriadPro-Regular_gdi.eot');
+    src: url('../fonts/MyriadPro-Regular_gdi.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/MyriadPro-Regular_gdi.woff') format('woff'),
+    url('../fonts/MyriadPro-Regular_gdi.ttf') format('truetype'),
+    url('../fonts/MyriadPro-Regular_gdi.svg#MyriadPro-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-25CA;
+}
+
+@font-face {
+    font-family: 'HelveticaNormal';
+    src: url('fonts/Helvetica-Normal.eot');
+    src: url('fonts/Helvetica-Normal.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Helvetica-Normal.woff') format('woff'),
+    url('fonts/Helvetica-Normal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+body{ background: #fff; margin: 0; padding: 0;}
+
+.toplogoblock{background-color: #fff;  padding-bottom: 4px;  padding-top: 27px; position: relative;}
+.toplogoblock img{margin: 0 auto; max-width: 80% !important;}
+
+
+.success_wrapper h4 {
+    color: #333333;
+    font-family: "HelveticaNormal";
+    font-size: 24px;
+    margin: 0;
+    padding: 25px 0 30px;
+    text-align: center;
+}
+.success_wrapper h4 a {
+    color: #e22b67;
+    display: inline-block;
+    text-decoration: underline;
+}
+.success_wrapper h4 a:hover {
+    text-decoration: none;
+}

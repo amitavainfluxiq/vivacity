@@ -1,0 +1,61 @@
+/* 
+	This is a CSS files which the layout system can parse and let the user control the CSS values! 
+
+	Please open and close CSS tags on two lines:
+	tag { == a opening tag line, you may put a description next to this line with a CSS comment and it will be displayed.  This must be a single line!
+	} == a closing tag, this closes the CSS tag
+	
+	place each CSS rule on a single line:
+		rule name: rules value;
+	
+	Any editable fields are within the comment tag "AI EDITABLE"
+		Within that comment tag you can put a description of that group by including a comment "AI DESCRIPTION: DESCRIPTION"
+	
+	The user defined values will be drawn in a seperte css file to be included after this one (this one being the default).
+	So any tags the user does not define will still have values thus displaying properly.
+
+	AI_CSS_DIR is replaced by the CSS directory that this CSS is placed in.  This changes depending on the theme name (defined by the user) so it must remain dynamic.
+*/
+
+
+
+
+/* AI EDITABLE */
+	/* AI GROUP: General */
+		/* AI DESCRIPTION: General styles to control the overall system */
+		body { /* This controls the main font that displays on the site as well as the main background color */
+			background: url('images/bg_body_pattern.png');
+		    background-color:#EFEFEF;
+			padding:0; /* NO EDIT */
+			margin:0; /* NO EDIT */
+		}
+
+		#skin_header {
+			height:75px;
+			background: url('images/bg_header_pattern.png');
+			background-color:#000000;
+			border-bottom:2px solid #9F9F9F;
+			-webkit-box-shadow: 0px 0px 8px rgba(50, 50, 50, 0.75);
+			-moz-box-shadow:    0px 0px 8px rgba(50, 50, 50, 0.75);
+			box-shadow:         0px 0px 8px rgba(50, 50, 50, 0.75);
+		}
+
+		#main_cont {
+			width:960px;
+			margin:10px auto;
+			background-color:#FFF;
+			padding:10px;
+			border:2px solid #9F9F9F;
+			-webkit-border-radius: 15px;
+			-moz-border-radius: 15px;
+			border-radius: 15px;
+		}
+	/* END AI GROUP */
+
+/* END AI EDITABLE */
+
+/* This area of the file is hard coded and the user can not override these styles*/
+
+.clear {
+	clear:both;
+}

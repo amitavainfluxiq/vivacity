@@ -1,0 +1,59 @@
+# Info File for Default Skin
+
+# Name = The name of the skin
+name=Base;
+
+# Description: A simple description of the theme
+description = Base Theme;
+
+# CSS: The name (or names, comma seperated) of the css files to be included on every page of this theme
+# Let the styles.php include whatever it wants
+css=;
+
+#V2 - 2.0 is required for theme's usage in the new theme manager
+#2.0 - This theme draws most of its content with $AI->skin->get_tag_dynalist($tagname)  (the name of the DLs is important)
+#2.1 - This theme draws std theme files: $theme/includes/head.html, $theme/css/styles.css, $theme/js/scripts.js 
+theme_version = 2.1;
+
+#CONFIGURE BOOTSTRAP INCLUSION
+uses_bootstrap = true;
+  #whether this theme supports bootstrap responsiveness in some way
+uses_own_bootstrap = false;
+  #whether this theme includes it's own bootstrap (so skin class doesn't include it also)
+
+#TURN SKINTAG CONTAINER DIVS OFF (Grrrr)
+draw_skintag_divs = false;
+
+#HIDE CLEANUP FOOTER HTML
+hide_ai_footer_html = true;
+
+
+default_skintags[meta_tags][type] = file;
+default_skintags[meta_tags][value] = [[THEME_DIR]]includes/meta_tags.php;
+
+default_skintags[styles][type] = file;
+default_skintags[styles][value] = [[THEME_DIR]]includes/styles.php;
+
+default_skintags[bodytag_beg][type] = file;
+default_skintags[bodytag_beg][value] = [[THEME_DIR]]includes/bodytag_beg.php;
+
+default_skintags[header][type] = file;
+default_skintags[header][value] = [[THEME_DIR]]includes/header.php;
+
+default_skintags[body_header][type] = file;
+default_skintags[body_header][value] = [[THEME_DIR]]includes/body_header.php;
+
+default_skintags[body][type] = file;
+default_skintags[body][value] = [[THEME_DIR]]includes/body.php;
+
+default_skintags[body_footer][type] = file;
+default_skintags[body_footer][value] = [[THEME_DIR]]includes/body_footer.php;
+
+default_skintags[bodytag_end][type] = file;
+default_skintags[bodytag_end][value] = [[THEME_DIR]]includes/bodytag_end.php;
+
+default_skintags[footer][type] = file;
+default_skintags[footer][value] = [[THEME_DIR]]includes/footer.php;
+
+default_skintags[cleanup][type] = file;
+default_skintags[cleanup][value] = [[THEME_DIR]]includes/cleanup.php;
