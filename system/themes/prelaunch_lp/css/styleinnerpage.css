@@ -163,7 +163,7 @@
 
 .productform  .formmainbg{ background: #dfe2e3; margin: 15px; border: solid 1px #c2c3c4; border-radius: 0 0 10px 10px;}
 
-.productform  .formmainbg h3{ background: #3c3c3b; width: 100%; margin: 0 0 15px 0; padding: 24px 0; text-align: center; font-size: 22px; color: #ffffff; text-transform: uppercase; font-family: 'OpenSansSemibold';}
+.productform  .formmainbg h3{ background: #3c3c3b; width: 100%; margin: 0 0 15px 0; padding: 20px 0; text-align: center; font-size: 22px; color: #ffffff; text-transform: uppercase; font-family: 'OpenSansSemibold';}
 
 
 .productform .form-group{     width: auto;
@@ -172,9 +172,9 @@
 
 .productform .form-group label{ display: block; width: 100%; font-size: 14px; color: #292929; font-weight: normal; font-family: arial, helvetica, sans-serif; text-align: left; padding: 0; margin: 0; text-transform: capitalize;}
 
-.productform .form-group input[type="text"]{ width: 100%; padding: 4px; height: 34px; margin: 0px; border: solid 1px #c0c3c5; margin: 0px; font-size: 13px; color: #292929; background: #fff!important;}
-.productform .form-group input[type="password"]{ width: 100%; padding: 4px; height: 34px; margin: 0px; border: solid 1px #c0c3c5; margin: 0px; font-size: 13px; color: #292929;  background: #fff!important;}
-.productform .form-group select{ width: 100%; padding: 4px; height: 34px; margin: 0px; border: solid 1px #c0c3c5;  font-size: 13px; color: #292929;  background: #fff!important;}
+.productform .form-group input[type="text"]{ width: 100%; padding: 4px; height: 40px; margin: 0px; border: solid 1px #c0c3c5; margin: 0px; font-size: 13px; color: #292929; background: #fff!important;}
+.productform .form-group input[type="password"]{ width: 100%; padding: 4px; height: 40px; margin: 0px; border: solid 1px #c0c3c5; margin: 0px; font-size: 13px; color: #292929;  background: #fff!important;}
+.productform .form-group select{ width: 100%; padding: 4px; height: 40px; margin: 0px; border: solid 1px #c0c3c5;  font-size: 13px; color: #292929;  background: #fff!important;}
 
 
 .productform .form-group2{    width: auto;
@@ -183,10 +183,10 @@
 
 .productform .form-group2 label{ display: block; width: 100%; font-size: 13px; color: #292929; font-weight: normal; font-family: arial, helvetica, sans-serif; text-align: left; padding: 0; margin: 0; text-transform: capitalize;}
 
-.productform .form-group2 select{ width: 45%; padding: 4px; height: 34px; margin: 0px; border: solid 1px #c0c3c5;  font-size: 13px; color: #292929;  background: #fff!important;}
+.productform .form-group2 select{ width: 45%; padding: 4px; height: 40px; margin: 0px; border: solid 1px #c0c3c5;  font-size: 13px; color: #292929;  background: #fff!important;}
 
 
-.formsub_btn{width:252px!important; padding:15px 0 17px 0!important; height: auto!important; display:block!important; margin:20px auto!important; margin-top: 12px!important; border:solid 4px #fff0e4!important; border-radius:5px!important; -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75)!important;
+.formsub_btn{width:252px!important; padding:14px 0 16px 0!important; height: auto!important; display:block!important; margin:20px auto!important; margin-top: 12px!important; border:solid 4px #fff0e4!important; border-radius:5px!important; -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75)!important;
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75)!important;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75)!important;
 
@@ -250,7 +250,7 @@
 
 
 .formchakebox label{ width: 25px; display: block; float: left; }
-.formchakebox span{ width: 220px; display: block; float: right; }
+.formchakebox span{ width: 220px; display: block; float: right; cursor: pointer;     padding: 4px 0 0 0; }
 
 
 
@@ -260,7 +260,7 @@
 
 .success_img{ display: block; margin: 0 auto; margin-bottom: 20px; max-width: 100%;}
 
-.success_wrapper h2{ margin:0; padding: 25px 0 0 0; font-family: 'HelveticaNormal'; font-size: 30px; color:#069d1f; text-transform: uppercase;  text-align: center;}
+.success_wrapper h2{ margin:0; padding: 25px 0 0 0; font-family: 'HelveticaNormal'; font-size: 30px; color:#51b517; text-transform: uppercase;  text-align: center;}
 
 .success_wrapper h3{ margin:0;    padding: 15px 0 5px 0;    font-family: 'HelveticaNormal'; font-size: 18px; color:#7c7c7c; text-transform: uppercase; text-align: center; }
 
@@ -270,25 +270,24 @@
 .success_wrapper h4 a:hover{ text-decoration: none; }
 
 .success_wrapper th,td{ text-align: center; font-family: "HelveticaNormal"; padding: 10px 0 8px 0!important; }
-.success_wrapper th{font-size: 16px !important;font-weight: bold!important;background: #069d1f !important; }
+.success_wrapper th{font-size: 16px !important;font-weight: normal!important;background: #51b517 !important; }
 
 .grandtotal_block{width: 100%; float: none; font-size: 22px; color: #333; margin-top: 15px; }
 
 .grandtotal_block td{ padding: 5px 0 2px 0 !important;font-size: 18px!important;}
 
-.grandtotal_block td .td_text {
-    text-align: right;
-    padding-right: 12px;
+.td_text{
+    font-size: 18px!important;
 }
 
-.grandtotal_block td .td_text.td_text1{
-    font-size: 22px!important;
+
+.td_text1{
+    font-size: 18px!important;
 }
 
-.grandtotal_block td .td_valu {
-    padding-left: 100px;
-    text-align: left;
-    padding-right: 5px;
+.td_valu {
+    font-size: 18px!important;
+
 }
 
 .order_heading{  font-family: 'poetsen_oneregular'; background:url(../images/orderdevider.png) no-repeat center bottom; text-align: center; width: 100%; display: block; margin:0 auto; margin-bottom: 30px; font-size: 36px; line-height: 40px; color: #3c3c3b; padding: 0 0 30px 0;}
@@ -297,31 +296,18 @@
 
 
 .btnloginsuccess, .btnloginsuccess:hover {
-    background: #fea718 !important;
-    background-image: -webkit-linear-gradient(top, #fea718, #ff4200) !important;
-    background-image: -moz-linear-gradient(top, #fea718, #ff4200) !important;
-    background-image: -ms-linear-gradient(top, #fea718, #ff4200) !important;
-    background-image: -o-linear-gradient(top, #fea718, #ff4200) !important;
-    background-image: linear-gradient(to bottom, #fea718, #ff4200) !important;
-    -webkit-border-radius: 40px !important;
-    -moz-border-radius: 40px !important;
-    border-radius: 40px !important;
-    font-family: "RobotoBlack";
-    color: #ffffff !important;
-    font-size: 24px !important;
-    padding: 6px 20px 10px 20px !important;
-    border: solid #fff 2px !important;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4) !important;
-    font-style: italic;
-    white-space: normal !important;
-    -webkit-box-shadow: 0px 1px 6px rgba(50, 50, 50, 1) !important;
-    -moz-box-shadow: 0px 1px 6px rgba(50, 50, 50, 1) !important;
-    box-shadow: 0px 1px 6px rgba(50, 50, 50, 1) !important;
-    width: 247px;
+    background: #51b517;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    height: 31px;
+    line-height: 33px;
+    margin: 26px auto;
     text-align: center;
     text-decoration: none;
+    text-transform: uppercase;
+    width: 120px;
 }
 
 @media only screen and (max-width: 880px) {
@@ -504,3 +490,10 @@
         font-size: 18px;
     }
 }
+
+@media only screen and (max-width:460px) {
+    .success_wrapper h4{ font-size: 13px;}
+
+}
+
+

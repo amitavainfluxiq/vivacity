@@ -19,7 +19,7 @@ $landing_page->add_validator('username', 'is_length', 3,'Invalid User Name');
 //$landing_page->add_validator('password', 'is_length', 3,'Invalid Password');
 $landing_page->add_validator('first_name', 'is_length', 3,'Invalid First Name');
 $landing_page->add_validator('last_name', 'is_length', 3,'Invalid Last Name');
-$landing_page->add_validator('company', 'is_length', 3,'Invalid Company Name');
+//$landing_page->add_validator('company', 'is_length', 3,'Invalid Company Name');
 $landing_page->add_validator('email', 'util_is_email','','Invalid Email Address');
 //$landing_page->add_validator('phone', 'is_phone','','Invalid Phone Number');
 $landing_page->add_validator('check_terms','is_checked','','You must accept the Terms &amp; Conditions');

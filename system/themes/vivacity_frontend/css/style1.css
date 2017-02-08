@@ -1,0 +1,311 @@
+.aboutusblock1 span.titleinfo2{
+    color: #242424;
+    font-family: "RalewayBold";
+    font-size: 30px;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 30px;
+    display: inline-block;
+    position: relative;
+    margin-top: -3px;
+}
+
+.aboutusblock1 span.titleinfo2:after{
+    content:"";
+    background:#89b11d;
+    height:4px;
+    width:200px;
+    display: block;
+    margin-top:15px;
+    margin-bottom:20px;
+}
+
+.aboutusblock1 p img.aboutimg2new{
+    float: left;
+    vertical-align: top;
+    margin: 0px 65px 35px 0px; width: 278px;
+}
+
+.aboutusblock1 span.titleheadlinenew2{
+    color: #fff;
+    font-family: "RalewayBold";
+    font-size: 24px;
+    margin: 0;
+    line-height: 30px;
+    display: inline-block;
+    position:relative;
+    background:#d90253;
+    padding:15px;
+    margin-bottom: 20px;
+}
+
+.opportunity_block_con{ padding:32px 0;  border-top: solid 1px #c6c6c6;}
+.opportunity_block_con:first-of-type{ border: none; padding-top: 20px;}
+
+.opportunity_block_con:last-of-type{ padding-bottom: 0px;}
+
+.opportunity_block_con .opp_div1{ width: 320px; float: left;}
+
+.opportunity_block_con .opp_div1 img{ display: block; margin: 0 auto; margin-top: 25px; max-width: 100%;}
+
+
+.opportunity_block_con .opp_div2{ width: 360px; float: left; padding: 0 10px;}
+
+.opportunity_block_con .opp_div2 h2{ margin: 0; padding: 0; font-family: 'EngraversGothicBT'; font-size: 48px; color: #1d1d1d; text-transform: uppercase;}
+
+.opportunity_block_con .opp_div2 h3{ margin: 0; padding: 10px 0 0 0;  font-family: 'RalewayRegular'; font-size: 14px; color: #393838; line-height: 22px; }
+.opportunity_block_con .opp_div2 h3 span{ color: #e10227;}
+
+.opportunity_block_con .opp_div3{ width:224px; float: left; padding: 20px 15px;  min-height: 360px;}
+
+.opportunity_block_con .opp_div3 h4{ font-size: 30px; color: #dc1f90; margin: 0; padding: 0;   font-family: 'RalewayBold'; text-transform: uppercase;}
+.opportunity_block_con .opp_div3 h5{ font-size: 20px; color: #2d2d2d; margin: 0; padding: 10px 0;    font-family: 'RalewayRegular';}
+.opportunity_block_con .opp_div3 ul{ margin: 0; padding: 0;}
+
+.opportunity_block_con .opp_div3 ul li{ list-style: none; margin: 6px 0; font-size: 16px; color: #3e520c; font-family: 'RalewayRegular'; padding-left: 22px; background: url(../images/ad_text_bullate.jpg) no-repeat left center;}
+
+
+
+/* .opp_div3:nth-child(1){ background: #e0ebc5; }
+.opp_div3:nth-child(2){ background: #fae1cb; }
+ .opp_div3:nth-child(3){ background: #f6d3e6; }
+ .opp_div3:nth-child(4){ background: #f6f1c0; }
+.opp_div3:nth-child(5){ background: #bde9f7; }*/
+
+
+.opportunity_block_con:nth-child(4n-9) .opp_div3{ background: #e0ebc5; }
+
+.opportunity_block_con:nth-child(4n-9) .opp_div3 ul li{ color: #3e520c; }
+
+.opportunity_block_con:nth-child(4n-10) .opp_div3{ background: #fae1cb; }
+
+.opportunity_block_con:nth-child(4n-10) .opp_div3 ul li{ color: #68370b; }
+
+
+.opportunity_block_con:nth-child(4n-11) .opp_div3{ background: #f6d3e6; }
+
+.opportunity_block_con:nth-child(4n-11) .opp_div3 ul li{ color: #6f1a4d; }
+
+
+.opportunity_block_con:nth-child(4n-12) .opp_div3{ background: #f6f1c0; }
+
+.opportunity_block_con:nth-child(4n-12) .opp_div3 ul li{ color: #574208; }
+
+
+.opportunity_block_con:nth-child(4n-13) .opp_div3{ background: #bde9f7; }
+
+.opportunity_block_con:nth-child(4n-13) .opp_div3 ul li{ color: #0e587b; }
+
+
+
+
+
+
+.opportunity_block_con .opp_div4{ width:348px; float: right;  }
+
+.opportunity_block_con .opp_div4 a{ margin-top: 52px; width: 166px; height: 50px; border-radius: 4px; line-height: 45px; background: #fff; border:  solid 2px #006fdf; font-size: 16px; color: #006fdf; text-align: center;   font-family: 'RalewaySemiBold'; text-transform: uppercase; text-decoration: none!important;}
+.opportunity_block_con .opp_div4 .opplink_pro1{ display: block; float: left;}
+.opportunity_block_con .opp_div4 .opplink_pro2{ display: block; float: right;}
+
+.opportunity_block_con .opp_div4 img{ display: block; margin: 0 auto;}
+
+
+
+.hrlinenew{    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+    background: #c7c7c7;
+    height: 1px;
+    display: block;}
+
+.checkoutfromblock h2{    color: #131313;
+    font-family: "RalewayBold";
+    font-size: 30px;
+    line-height: 30px;
+    margin: 0;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px!important; text-transform: uppercase;}
+
+.checkoutblockwrappernew label{ font-weight: normal!important;}
+
+
+.opportunity_btnwrapper{ width: 380px; margin: 0 auto; margin-top:25px;}
+
+.opportunity_btnwrapper input{ width: 170px!important; margin: 0 9px!important; height: 46px!important; border:solid 2px #000000!important; border-radius: 4px!important; background: #fff!important; text-align: center!important; line-height: 35px!important; font-size: 16px!important; color: #000000!important; text-transform: uppercase!important;      font-family: 'RalewaySemiBold'!important; box-shadow: none!important;}
+
+
+.cannabinoides_top_banner{ display: block; width: 100%;}
+
+.cannabinoides_h6text{ font-size: 16px; color: #494949; font-family: 'RalewayRegular'; line-height: 24px; margin: 0; padding: 18px 0 0 0;}
+
+.cannabinoides_h6text b{ font-weight: normal; color: #7ca300;}
+
+.cannabinoides_wrapper2{ border-top: solid 1px #dfdfdf; border-bottom: solid 1px #dfdfdf; padding: 25px 0; margin: 25px 0;}
+
+.cannabinoides_wrapper2 .cannabinoides_block2_left{ width: 590px; float: left;}
+
+.cannabinoides_wrapper2 .cannabinoides_block2_left h1{ font-size: 30px; color: #242424; text-transform: capitalize; font-family: "RalewayBold"; border-bottom: solid 4px #89b11d; margin: 0; padding: 0 0 10px 0;}
+
+.cannabinoides_wrapper2 .cannabinoides_block2_right{ width: 655px; float: right; margin-top: 43px;}
+
+.cannabinoides_wrapper2 .cannabinoides_block2_right img{ width: 100%;}
+
+.cannabinoides_h6text span{ color: #d90253;}
+
+
+.cannabinoides_block3_left{ width: 514px; float: left;}
+
+.cannabinoides_block3_left h1{ padding: 0; margin: 0; font-size: 30px; color: #242424; text-transform: uppercase; font-family: "RalewayBold";}
+.cannabinoides_block3_left h3{ padding: 16px 5px; margin:16px 0 14px 0; background: #d90253; text-align:center; font-size: 24px; color: #ffffff;    font-family: 'RalewaySemiBold'; }
+
+.cannabinoides_block3_left  .cannabinoides_img3{ display: block; width: 100%;}
+
+.cannabinoides_proimg{ width: 319px; float: right; margin-top: 58px;}
+
+
+.cannabinoides_block3_ulcontain{ width: 370px; float: left; margin: 58px 0 0 35px;}
+
+.cannabinoides_block3_ulcontain ul{ margin: 0; padding: 0;}
+
+.cannabinoides_block3_ulcontain li{ background: url(../images/cannabinoides_libg.png) no-repeat left center; list-style:none; margin: 2px 0; padding: 4px 0 4px 46px; font-size: 22px; color: #555454; font-family: 'RalewaySemiBold';}
+
+
+.cul_buynow{ display: block;  margin-top: 26px; margin-left: 80px; width: 170px; height: 50px; border: solid 1px #9bbf00; border-radius: 4px;  font-size: 16px; color: #a0c400!important; font-family: 'RalewaySemiBold';  text-transform: uppercase; text-decoration: none!important; text-align: center; line-height: 50px;}
+.cannabinoides_h6text2{ font-size: 16px; color: #494949; font-family: 'RalewayRegular'; line-height: 24px; margin: 0; padding: 34px 0 0 0;}
+
+.cannabinoides_h6text2 span{ color: #d90253;}
+
+
+/*================================================================================================*/
+/*========================================== Media Css  ==========================================*/
+/*================================================================================================*/
+
+@media only screen and (max-width: 1300px) {
+.aboutusblock1 p img.aboutimg1{ margin-left: 20px;}
+}
+
+@media only screen and (max-width: 1250px) {
+    .aboutusblock1 p img.aboutimg1{ margin-left: 0px;}
+}
+
+
+@media only screen and (max-width: 1280px) {
+    .opportunity_block_con .opp_div1 {
+        float: left;
+        width: 310px;
+    }
+
+    .opportunity_block_con .opp_div2 {
+        float: left;
+        padding: 0 10px;
+        width: 340px;
+    }
+
+    .opportunity_block_con .opp_div3 {
+        float: left;
+        min-height: 360px;
+        padding: 20px 15px;
+        width: 200px;
+    }
+
+}
+
+@media only screen and (max-width: 1260px) {
+    .opportunity_block_con .opp_div1 {
+        float: none;
+        width: 100%; text-align: center;
+    }
+
+    .opportunity_block_con .opp_div2 {
+        float: none;
+        width: 100%; text-align: center; margin: 25px auto;
+    }
+
+    .opportunity_block_con .opp_div3 {
+        float: none;
+        width: 100%; text-align: center;  margin: 25px auto; min-height: inherit;
+    }
+
+    .opportunity_block_con .opp_div4 {
+        float: none;
+        width: 348px; margin: 0 auto;
+    }
+
+
+}
+
+@media only screen and (max-width: 1199px) {
+
+    .opportunity_block_con .opp_div4 a{ margin-top: 10px;}
+
+    .aboutusblock1 span.titleinfo2{ text-align: center; padding-top: 30px;}
+
+    .aboutusblock1 span.titleinfo2:after{ width: 100%;}
+
+    .aboutusblock1 span.titleheadlinenew2{display: block;
+        float: left;
+        margin-bottom: 30px;
+        margin-top: 17px;
+        text-align: center;
+        width: 100%;}
+
+    .opportunity_block_con .opp_div3 ul li{ background:none; padding: 0px;}
+
+
+}
+
+
+@media only screen and (max-width: 980px) {
+
+    .cardexpiredblock {
+        margin-top: 0px;
+        padding-left: 15px !important;
+        padding-right: 15px !important;  margin-bottom: 10px;
+    }
+
+  .tripplecolumn{ margin-bottom: 10px;}
+  .tripplecolumnnew1{ margin-bottom: 10px;}
+
+}
+
+@media only screen and (max-width: 680px) {
+
+
+    .aboutusblock1 p img.aboutimg2new{
+        float: none;
+
+        margin: 35px auto; display:block; width: 100%; margin-top: 4px;
+    }
+
+    .aboutusblock1newtext{ text-align: center;}
+}
+
+
+
+
+@media only screen and (max-width: 460px) {
+
+    .opportunity_block_con .opp_div4 {
+        float: none;
+        width: 100%; margin: 0 auto;
+    }
+
+    .opportunity_block_con .opp_div4 img{ width: 100%;}
+
+    .opportunity_btnwrapper{ width: 100%; margin: 0 auto; margin-top:25px;}
+
+    .opportunity_btnwrapper input{ width: 170px!important; float: none!important; margin: 5px auto!important; display: block;}
+
+.paymentmode img{ margin-bottom: 4px;}
+
+    .cardexpiredblock select{ width: 40%;}
+
+    .opportunity_block_con .opp_div4 .opplink_pro1{ float: none; margin: 0 auto; margin-top: 20px;}
+    .opportunity_block_con .opp_div4 .opplink_pro2{ float: none; margin: 0 auto; margin-top: 20px;}
+
+
+    .checkoutfromblock{ padding-left: 0px!important; padding-right: 0px!important;}
+
+    .cardexpiredblock{ padding-left: 15px!important; padding-right: 15px!important;}
+}

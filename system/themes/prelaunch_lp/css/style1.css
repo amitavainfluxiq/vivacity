@@ -380,7 +380,7 @@ amitava css
 
 
 
-    border-top:solid 4px #f9e333;  border-bottom:solid 4px #f9e333; padding:0px 0; text-align:center; font-size:36px; color:#fff;  position:relative; position:relative;    float:right; font-family: 'SegoePrintBold'; text-shadow:
+    border-top:solid 4px #f9e333;  border-bottom:solid 4px #f9e333; padding:0px 0; text-align:center; font-size:32px; color:#fff;  position:relative; position:relative;    float:right; font-family: 'SegoePrintBold'; text-shadow:
         3px 3px 0 #284103,
         -1px -1px 0 #284103,
         1px -1px 0 #284103,
@@ -451,15 +451,21 @@ amitava css
 
 
 
-.ad_bannertext_wrapper .ad_form_right .formwrapper .ckbox{ width: 230px; margin:18px auto; margin-bottom:0px; font-family:"Times New Roman", Times, serif;}
+.ad_bannertext_wrapper .ad_form_right .formwrapper .ckbox{ width: 140px; margin:18px auto; margin-bottom:0px; font-family:"Times New Roman", Times, serif;}
 
+.ad_bannertext_wrapper .ad_form_right .formwrapper .ckbox span{ font-weight: normal; color: #fff; cursor: pointer; width: 113px; float: left; padding-left: 10px;}
+
+.ad_bannertext_wrapper .ad_form_right .formwrapper .ckbox label{ width: 22px; float: left;}
+
+.ad_bannertext_wrapper .ad_form_right .formwrapper .ckbox a{ color:#fff; text-decoration: none;}
+.ad_bannertext_wrapper .ad_form_right .formwrapper .ckbox a:hover{ color:#fff; text-decoration: underline;}
 .ad_bannertext_wrapper .ad_form_right .formwrapper .ckbox input[type=checkbox].css-checkbox {
     position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
 
 }
 
 .ad_bannertext_wrapper .ad_form_right .formwrapper .ckbox input[type=checkbox].css-checkbox + label.css-label {
-    padding-left:32px;
+    padding-left:0px;
     height:21px;
     display:inline-block;
     line-height:21px;
@@ -499,7 +505,7 @@ amitava css
 
 
 
-.ad_banner_bottom_text_wrapper{ width:1250px!important; margin:0 auto; padding:0px!important;}
+.ad_banner_bottom_text_wrapper{ width:1250px!important; margin:0 auto; padding:0px!important; text-decoration: none;}
 
 
 .ad_banner_bottom_text_wrapper .ad_blck2_textleft{ width:755px; float:left; background:url(../images/banner_bottom_img2.png) repeat-y left center ; padding:0 0 0 20px; font-family: "RalewayBlack"; font-size:36px; color:#1a2837; text-transform:uppercase; line-height:46px; margin-top:165px;}
@@ -507,7 +513,7 @@ amitava css
 .ad_banner_bottom_text_wrapper .ad_blck2_textleft span{ color:#ec0143;}
 .ad_banner_bottom_text_wrapper  .ad_blck2_imgright{ width:489px; float:right; margin-top:0px;}
 
-.ad_banner_bottom_text_wrapper h3{  font-family: "HelveticaNormal"; font-size:21px; color:#3d4955; line-height:36px; margin:0; padding:5px 0 10px 0;}
+.ad_banner_bottom_text_wrapper h3{  font-family: "HelveticaNormal"; font-size:21px; color:#3d4955; line-height:36px; margin:0; padding:5px 0 10px 0; text-decoration: none!important;}
 
 .ad_banner_bottom_text_wrapper h3 strong{ color:#aad33a; text-transform:uppercase;}
 .ad_toptitleblock2{ width:100%; margin-bottom: 50px !important;}
@@ -763,7 +769,7 @@ h2.ad_titlebar2::after{
     -webkit-transform: skewX(-20deg);
     transform: skewX(-20deg);
     padding: 20px;
-    font-size: 46px;
+    font-size: 45px;
     border-left: 10px solid #fb568c;
     border-right: 10px solid #fb568c;
     position: relative;
@@ -972,7 +978,7 @@ h2.ad_titlebar2::after{
 
 .enrollmentblock5row1left p{
     font-family: "HelveticaNormal";
-    font-size: 22px;
+    font-size: 18px;
     margin: 0;
     color: #1a2837;
     width: 78%;
@@ -1430,7 +1436,9 @@ h2.ad_titlebar2::after{
 .footer_div1{padding-bottom: 15px}
 .footer_div2 a, .footer_div2 span{color: #191919; font-family: "OpenSansSemibold"; font-size: 12px;  margin: 0; line-height: 16px; text-decoration: none;}
 .footer_div2 span {margin-left: 35px;}
-.footer_div2 a:hover{text-decoration: none;color: #e22b67;}
+
+.footer_div2 a{color: #191919!important;  text-decoration: none!important;}
+.footer_div2 a:hover{text-decoration: none !important; color: #e22b67!important;}
 /*.row {
     margin-right: 0px !important;
     margin-left: 0px !important;
@@ -1453,6 +1461,85 @@ h2.ad_titlebar2::after{
 .dynalist_entry {
     width:100% !important;
 }
+
+
+
+/*-footermodel CSS--*/
+
+.footermodel .modal-header{background: #397714; width: 100%; margin: 0; padding: 0; min-height: 73px;border-radius-topleft:6px;
+    border-radius-topright:6px; -webkit-border-radius-topleft:6px; -webkit-border-radius-topright:6px; -moz-border-radius-topleft:6px;    -moz-border-radius-topright:6px;}
+.footermodel .modal-header h4.modal-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'OpenSansBold';
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 36px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 18px;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.40);
+}
+
+.footermodel .modal-header .close{background: #323232 !important; opacity: 1; color: #fff; padding: 5px 9px; border-radius: 100%;margin-top: -7px; margin-right: -10px;}
+
+.footermodel b{
+    font-family:'MyriadPro-Regular';
+    font-size: 16px;
+    line-height: 25px;
+    color: #333;
+    display: block;
+
+     font-weight: normal; background: url("../images/popupicon.png") no-repeat left 8px; padding: 0 0 10px 15px;
+}
+
+
+.footermodel .modal-dialog{ width:80%; color: #333;}
+
+.footermodel .modal-body{ padding: 35px;}
+.footermodel h2{ color: #387414; font-size: 24px;}
+.footermodel b strong{ color: #387414; font-size: 24px;}
+
+.footermodel label{ color: #387414; }
+
+.footermodel a{ color: #333; text-decoration: underline; cursor: pointer; }
+
+.footermodel a:hover{ color: #387414; text-decoration: none; }
+
+.classdiv1_new{ margin: 0 0 15px 0;}
+
+.classdiv1{ margin: 0 0 15px 0;}
+
+.classdiv2{ margin: 0 0 15px 0px;}
+
+
+.btnjoinnow{ cursor: pointer;}
+
+
+.close{ box-shadow:none!important; outline: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

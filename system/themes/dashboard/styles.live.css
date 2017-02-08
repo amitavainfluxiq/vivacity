@@ -106,3 +106,13 @@ body{  background: #f4f1f1 ; margin: 0; padding: 0;}
 
 
 }
+
+
+
+.page-dashboard .box_main{ width: 991px; margin: 25px auto; border: solid 1px #ccc!important; border-radius: 4px; padding-bottom: 10px;  }
+
+
+@media only screen and (max-width: 991px) {
+
+    .page-dashboard .box_main{ width: 90%; margin: 0 auto; }
+}

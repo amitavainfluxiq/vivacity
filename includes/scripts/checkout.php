@@ -33,7 +33,7 @@ $landing_page->add_validator('bill_country', 'is_length', 2,'Invalid Country');
 $landing_page->add_validator('bill_postal_code', 'is_length', 5,'Invalid Postal Code');
 $landing_page->add_validator('email', 'util_is_email','','Invalid Email Address');
 $landing_page->add_validator('phone', 'is_phone','','Invalid Phone Number');
-$landing_page->add_validator('besttime', 'is_length', 3,'Invalid \'Best time to call\'');
+//$landing_page->add_validator('besttime', 'is_length', 3,'Invalid \'Best time to call\'');
 
 $landing_page->add_validator('card_name', 'is_length', 3,'Invalid Name on Card');
 $landing_page->add_validator('card_number', 'is_length', 14,'Invalid Card Number');
@@ -124,11 +124,14 @@ if(util_is_POST()) {
                     $send_from = 'iftekarkta@gmail.com';
 
                     $vars = array();
-                    $vars['name'] = 'Samsuj Jaman';
+                    //$vars['name'] = 'Samsuj Jaman';
+                    $vars = getmailbody($orderid);
 
                     $defaults = array();
                     $defaults['email_subject'] = 'Order Success';
-                    $defaults['email_msg'] = getmailbody($orderid);
+                    //$defaults['email_msg'] = ' This is [[email_msg]]';
+                    //print_r($defaults);
+                    //exit;
 
                     $se = new C_system_emails($email_name);
                     $se->set_from($send_from);
@@ -207,12 +210,28 @@ function getmailbody($orderid =0){
             <td  align="center" valign="middle" style="padding:8px 10px;  font-size:16px; color:#111; font-weight:normal;  border-bottom:solid 2px #9e9b9b">$'.$p_total.'</td>
             <td align="left" valign="middle" style="border-bottom:solid 2px #069d1f;">&nbsp;</td>
           </tr>';
+        $var['pname']=$order['title'];
+        $var['pprice']=$order['price'];
+        $var['pqty']=$order['qty'];
 
 
     }
 
 
     $product_html .= '</table>';
+
+    $var['orderid']=$orderid;
+    $var['user']=$billing_addr['first_name'].' '.$billing_addr['last_name'];
+    $var['useraddr']=$billing_addr['address_line_1'].', '.$billing_addr['city'].', '.$billing_addr['region'].' '.$billing_addr['postal_code'].', '.$billing_addr['country'];
+    $var['useremail']=$billing_addr['email'];
+    $var['total']=$total_amnt;
+    $var['orderdate']=$date;
+
+    $var['ptotal']=$p_total;
+    $var['subtotal']=$subtotal;
+    $var['shipping']=$shipping;
+    $var['$tax']=$tax;
+    return $var;
 
 
     return '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -240,7 +259,12 @@ function getmailbody($orderid =0){
           <tr>
             <td align="left" valign="top">
             <div style="border-left:solid 6px #ec2e64; padding:6px 6px 6px 10px;">
-                '.$userdet.'
+                <h2 style="color: #555; font-size:18px; font-weight:normal; margin:0; padding:0px; display:inline-block;  ">Invoice to:</h2>
+                <br />
+                <h3 style="font-weight:normal; margin:5px 0 8px 0; padding:0px; font-size:22px;  color:#ec2e64; display:inline-block;  ">'.$billing_addr['first_name'].' '.$billing_addr['last_name'].'</h3>
+                <br />
+                <h4 style="font-weight:normal; margin:0; padding:0; font-size:14px; line-height:20px; color: #555555; display:inline-block; ">'.$billing_addr['address_line_1'].', '.$billing_addr['city'].', '.$billing_addr['region'].' '.$billing_addr['postal_code'].', '.$billing_addr['country'].'<br />
+                  '.$billing_addr['email'].'</h4>
               </div>
               </td>
             <td align="right" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -257,7 +281,17 @@ function getmailbody($orderid =0){
           </tr>
         </table>
         
-        '.$product_html.'
+        <tr>
+            <td align="left" valign="middle" style="border-bottom:solid 2px #069d1f;">&nbsp;</td>
+            <td  align="left" valign="middle" style="padding:8px 10px;  font-size:16px; color:#111; font-weight:normal;  border-bottom:solid 2px #9e9b9b">'.$order['title'].'</td>
+            <td align="left" valign="middle" style="border-bottom:solid 2px #9e9b9b;">&nbsp;</td>
+            <td  align="center" valign="middle" style="padding:8px 10px;  font-size:16px; color:#111; font-weight:normal;  border-bottom:solid 2px #9e9b9b">$'.$order['price'].'</td>
+            <td align="left" valign="middle" style="border-bottom:solid 2px #9e9b9b;">&nbsp;</td>
+            <td  align="center" valign="middle" style="padding:8px 10px;  font-size:16px; color:#111; font-weight:normal;  border-bottom:solid 2px #9e9b9b">'.$order['qty'].'</td>
+            <td align="left" valign="middle" style="border-bottom:solid 2px #9e9b9b;">&nbsp;</td>
+            <td  align="center" valign="middle" style="padding:8px 10px;  font-size:16px; color:#111; font-weight:normal;  border-bottom:solid 2px #9e9b9b">$'.$p_total.'</td>
+            <td align="left" valign="middle" style="border-bottom:solid 2px #069d1f;">&nbsp;</td>
+          </tr>
         
         <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding:20px 0px; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:20px; color:#333; ">
           <tr>
@@ -287,10 +321,14 @@ function getmailbody($orderid =0){
                   <td width="23%" align="right" valign="middle" style="padding:5px; color:#fff; background:#069d1f;">$'.$total_amnt.'</td>
                   <td width="5%" align="left" valign="middle" style="background:#069d1f;">&nbsp;</td>
                 </tr>
-              </table></td>
+              </table>
+              </td>
           </tr>
         </table>
-        <div style="width:auto; padding:30px; text-align:center; background:#141414; color:#e9e9e9;text-align:center; margin-top:40px;">Thank you
+        <div class="pull-right text-right">
+            <a style="display:block; margin: 0px auto 10px auto; width:120px; height:31px; background:#069d1f; font-size:16px; color:#fff; text-align:center; text-transform:uppercase; font-weight:bold; line-height:33px; text-decoration:none;" href="http://www.vivacitygo.com/login?ai_bypass=true" target="_blank">login</a>
+        </div>        
+        <div style="width:auto; padding:30px; text-align:center; background:#141414; color:#e9e9e9;text-align:center; margin-top:20px;">Thank you
           For Your Purchase Order</div>
       </div></td>
   </tr>
@@ -298,7 +336,6 @@ function getmailbody($orderid =0){
 </body>
 </html>';
 }
-
 
 
 $tax_str = '';
@@ -312,10 +349,42 @@ while($res && $row = db_fetch_assoc($res)) {
 
 $tax_str = json_encode($tax_arr);
 
+$ship_str = '';
+$ship_arr = array();
+
+$price_arr = array(99,199);
+
+$price_arr = array();
+
+$p_res = db_query("SELECT `ps`.`price` FROM `product_stock_items` `ps`");
+
+while($p_res && $product = db_fetch_assoc($p_res)) {
+    $price_arr[] = $product['price'];
+}
+
+$price_arr = array_unique($price_arr);
+
+
+foreach ($price_arr as $val){
+
+    $res = db_query("SELECT * FROM `shipping_by_price` WHERE `min` <".$val." && `max` >=".$val);
+
+    $ship_arr[$val] = 6;
+
+    while($res && $row = db_fetch_assoc($res)) {
+        $ship_arr[$val] = $row['cost'];
+    }
+
+    $ship_str = json_encode($ship_arr);
+}
+
+
+
 ?>
 <div class="productform" id="productformcon">
 
     <input type="hidden" id="taxarr" value='<?php echo $tax_str;?>'>
+    <input type="hidden" id="shiparr" value='<?php echo $ship_str;?>'>
 
     <div class="formheading">
 
@@ -383,7 +452,7 @@ $tax_str = json_encode($tax_arr);
     <div class="form-group">
 
         <label for="bill_country">Country</label>
-        <?php $landing_page->draw_country_select('bill_'); ?>
+        <?php $landing_page->draw_country_select('bill_',array('United States')); ?>
     <div class="clearfix"></div>
    </div>
 
@@ -418,13 +487,13 @@ $tax_str = json_encode($tax_arr);
         <input name="email" type="text" id="email"  />
     <div class="clearfix"></div>
    </div>
-    <div class="form-group">
+   <!-- <div class="form-group">
         <label for="besttime">Best Time to Call</label>
         <select name="besttime" id="besttime">
-            <?php $landing_page->draw_besttime_options(); ?>
+            <?php //$landing_page->draw_besttime_options(); ?>
         </select>
     <div class="clearfix"></div>
-   </div>
+   </div>-->
     <h3 id="two" style="margin-top: 15px;">Pay with Credit or Debit Card</h3>
 
     <div class="form-group">
@@ -432,13 +501,7 @@ $tax_str = json_encode($tax_arr);
         <input name="card_name" type="text" id="card_name" value="" />
     <div class="clearfix"></div>
    </div>
-    <div class="form-group">
-        <label for="card_number">Credit Card Number</label>
-        <input name="card_number" type="text" id="card_number" value="" />
-        <!--<strong class="secure">Secure</strong>-->
 
-    <div class="clearfix"></div>
-  </div>
 
     <div class="form-group">
         <label for="card_type">Credit Card Type</label>
@@ -447,6 +510,13 @@ $tax_str = json_encode($tax_arr);
         </select>
     <div class="clearfix"></div>
    </div>
+    <div class="form-group">
+        <label for="card_number">Credit Card Number</label>
+        <input name="card_number" type="text" id="card_number" value="" />
+        <!--<strong class="secure">Secure</strong>-->
+
+        <div class="clearfix"></div>
+    </div>
     <div class="form-group2">
         <label for="card_exp_mo">Expiration Date</label>
         <select name="card_exp_mo" id="card_exp_mo">
@@ -471,7 +541,7 @@ $tax_str = json_encode($tax_arr);
 
        <label for="iagreetoit" class="css-label"></label>
 
-        <span>I have read & agreed to the Terms & Conditions </span>
+        <span data-toggle="modal" data-target="#myModalterms">Accept All Terms</span>
 
 
 

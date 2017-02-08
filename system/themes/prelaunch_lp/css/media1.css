@@ -127,9 +127,18 @@
         font-size: 30px;
     }
     .enrollmentblock8bgcontentrightcontent h3 {
-        font-size: 21px;
+        font-size: 20px;
     }
 }
+
+
+@media only screen and (max-width: 1660px) {
+    .enrollmentblock8bgcontentrightcontent h3 {
+        font-size: 18px;
+    }
+
+}
+
 
 @media only screen and (max-width: 1600px) {
     .titlebar {
@@ -373,7 +382,7 @@
     }
     .enrollmentblock8bgcontentrightcontent h5 {
         font-size: 15px;
-        line-height: 20px !important;
+        line-height: 25px !important;
     }
 }
 
@@ -774,7 +783,7 @@
     .enrollmentblock8bgcontentrightcontent ul li {
         font-size: 20px;
         line-height: 26px;
-        margin-bottom: 20px;
+        margin-bottom: 20px;  list-style: none;
     }
     .enrollmentblock8bgcontentrightcontent h5 {
         font-size: 23px;
@@ -978,7 +987,15 @@
    amitava css
    ========================================================================== */
 
+@media only screen and (max-width: 1920px) {
+    .ad_banner_bottom_text_wrapper {
+        margin-top: 50px;
+    }
 
+    .ad_banner_bottom_text_wrapper .ad_blck2_textleft{
+        margin-top: 150px;
+    }
+}
 
 @media only screen and (max-width: 1860px) {
 
@@ -995,12 +1012,16 @@
     .ad_banner_block{ background:url(../images/bannerimg.png) no-repeat -120px top; width:100%; background-size:1920px; }
 
 
+
+
 }
 
 
 @media only screen and (max-width: 1600px) {
 
     .ad_banner_block{ background:url(../images/bannerimg.png) no-repeat -180px top; width:100%; background-size:1920px; }
+
+
 
 
 }
@@ -1281,3 +1302,18 @@
     .ad_marketingblock_text h4{ font-size:32px;  line-height:40px; text-align:center; margin:20px 0 0 0;}
 
 }
+
+/*
+@media only screen and (min-width: 1800px) {
+    .ad_banner_bottom_text_wrapper .ad_blck2_textleft{
+        margin-top: 180px;
+    }
+}*/
+
+
+
+
+
+
+
+
