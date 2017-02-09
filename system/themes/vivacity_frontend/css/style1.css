@@ -183,8 +183,44 @@
 
 @media only screen and (max-width: 1300px) {
 .aboutusblock1 p img.aboutimg1{ margin-left: 20px;}
+
+
+    .cannabinoides_wrapper2 .cannabinoides_block2_right{ width: 600px; margin-top: 80px}
+
+    .cannabinoides_block3_ulcontain {
+        width: 340px;
+        float: left;
+        margin: 58px 0 0 26px;
+    }
+
+    .cannabinoides_block3_left {
+        width: 500px;
+        float: left;
+    }
+
+
+
 }
 
+@media only screen and (max-width: 1260px) {
+.cannabinoides_block3_left {
+    width: 420px;
+    float: left;
+}
+
+    .cannabinoides_block3_ulcontain{ margin-top: 40px;}
+
+    .cannabinoides_proimg {
+        width: 300px;
+        float: right;
+        margin-top: 38px;
+    }
+
+    .cannabinoides_wrapper2 .cannabinoides_block2_right {
+        width: 510px;
+        margin-top: 90px;
+    }
+}
 @media only screen and (max-width: 1250px) {
     .aboutusblock1 p img.aboutimg1{ margin-left: 0px;}
 }
@@ -237,6 +273,32 @@
 
 @media only screen and (max-width: 1199px) {
 
+
+    .cannabinoides_wrapper2 .cannabinoides_block2_left {
+        width: 100%;
+        float: none;
+    }
+
+
+    .cannabinoides_wrapper2 .cannabinoides_block2_right{ width: 700px; float: none; margin: 0 auto; margin-top: 20px;}
+
+
+    .cannabinoides_block3_left {
+        width: 100%;
+        float: none;
+    }
+
+    .cannabinoides_block3_ulcontain {
+        width: 340px;
+        float: none;
+        margin: 30px auto;
+    }
+
+    .cannabinoides_proimg{ width: 300px; float: none; margin: 0 auto; display: block; margin-top: 30px;}
+
+    .cul_buynow{ margin: 0 auto; margin-top: 26px;}
+
+
     .opportunity_block_con .opp_div4 a{ margin-top: 10px;}
 
     .aboutusblock1 span.titleinfo2{ text-align: center; padding-top: 30px;}
@@ -267,6 +329,9 @@
   .tripplecolumn{ margin-bottom: 10px;}
   .tripplecolumnnew1{ margin-bottom: 10px;}
 
+}
+@media only screen and (max-width: 760px) {
+.cannabinoides_wrapper2 .cannabinoides_block2_right{ width: 100%;}
 }
 
 @media only screen and (max-width: 680px) {
@@ -308,4 +373,22 @@
     .checkoutfromblock{ padding-left: 0px!important; padding-right: 0px!important;}
 
     .cardexpiredblock{ padding-left: 15px!important; padding-right: 15px!important;}
+
+
+    .cannabinoides_proimg {
+        width: 250px;}
+
+    .cannabinoides_block3_ulcontain {
+        width: 260px;
+        float: none;
+        margin: 30px auto;
+    }
+
+    .cannabinoides_block3_ulcontain li{ font-size: 16px; padding-left: 34px;}
+
+    .cannabinoides_h6text{ text-align: center;}
+
+    .cannabinoides_h6text2{text-align: center;}
+    .cannabinoides_block3_left h1{text-align: center;}
+    .cannabinoides_wrapper2 .cannabinoides_block2_left h1{text-align: center;}
 }
