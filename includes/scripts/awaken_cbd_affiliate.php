@@ -2,32 +2,47 @@
 global $AI;
 require_once(ai_cascadepath('includes/plugins/landing_pages/class.landing_pages.php'));
 
-$landing_page = new C_landing_pages('awaken-cbd-affiliate');
-$landing_page->next_step = 'awaken-cbd-affiliate-checkout';
+$landing_page = new C_landing_pages('xcellerate-affiliate');
+$landing_page->next_step = 'xcellerate-affiliate-checkout';
+
 $landing_page->next_step_send_ses_key = true;
 $landing_page->css_error_class = 'lp_error';
 
 $landing_page->pp_create_campaign = true;
 
-
 $landing_page->add_validator('first_name', 'is_length', 3,'Invalid First Name');
 $landing_page->add_validator('last_name', 'is_length', 3,'Invalid Last Name');
-$landing_page->add_validator('company', 'is_length', 3,'Invalid Business Name');
-$landing_page->add_validator('email', 'util_is_email','','Invalid Email Address');
-$landing_page->add_validator('phone', 'is_phone','','Invalid Phone Number');
+$landing_page->add_validator('address', 'is_length', 3,'Invalid Address');
+$landing_page->add_validator('city', 'is_length', 3,'Invalid City');
 $landing_page->add_validator('state', 'is_length',1,'Invalid State');
+$landing_page->add_validator('zip', 'is_length',1,'Invalid Zip Code');
+$landing_page->add_validator('phone', 'is_phone','','Invalid Phone Number');
+$landing_page->add_validator('email', 'util_is_email','','Invalid Email Address');
+
 
 if(util_is_POST()) {
     $landing_page->validate();
     if($landing_page->has_errors()) { $landing_page->display_errors(); }
     else {
-        if($landing_page->save_lead($AI->get_setting('owner_id')))
-        {
-            // Subscribe them to the drip campaign
+
+
+        /*$landing_page->load_user_data_to_session();*/
+
+        if($AI->user->is_logged_in()){
             $landing_page->pp_drip_opt_in();
 
             $landing_page->goto_next_step();
+        }else{
+            if($landing_page->save_lead($AI->get_setting('owner_id')))
+            {
+                // Subscribe them to the drip campaign
+                //$landing_page->pp_drip_opt_in();
+
+                $landing_page->goto_next_step();
+            }
         }
+
+
     }
 }
 $landing_page->refill_form();
@@ -524,9 +539,9 @@ $landing_page->refill_form();
         </h1>
 
         <div class="block7_text_con">
-            <h4>For lasting results with any of the Vivacity product lines, a total approach to wellness is required. Vivacity’s VioShift System expedites the experience of The Shift and guides you along the path of ultimate health and wellness. We believe so wholeheartedly in this approach, that when you purchase any product from Vivacity, you get instant access to all our VioShift programs! <span class="brbottom"></span>VioShift was developed as a progressive, 4/4 system and is designed to advance the levels of nutrition and mindfulness for any caliber of participant. VioPhaze provides education on proper nutrition and how to successfully re-train your dietary habits. VioPhotonics <br/>equips you with the mental tools required to harness your inner strength <br/>and change the way you think to change your life. <span class="brbottom"></span>Embrace the mind-body connection and experience total health <br/>and wellbeing! When combined with any Vivacity product program, <br/>the VioShift System is the premier method for obtaining maximum <br/>levels of vitality. Clear your mind. Nurture your body. <br/>Be vivacious. Live with Vivacity.<span class="brbottom"></span></h4>
+            <h4>For lasting results with any of the Vivacity product lines, a total approach to wellness is required. Vivacity’s VioShift System expedites the experience of The Shift and guides you along the path of ultimate health and wellness. We believe so wholeheartedly in this approach, that when you purchase any product from Vivacity, you get instant access to all our VioShift programs! <span class="brbottom"></span>VioShift was developed as a progressive, 4/4 system and is designed to advance the levels of nutrition and mindfulness for any caliber of participant. VioPhaze provides education on proper nutrition and how to successfully <br/>re-train your dietary habits. VioPhotonics equips you with the mental <br/>tools required to harness your inner strength and change the way <br/>you think to change your life. <span class="brbottom"></span>Embrace the mind-body connection and experience total health <br/>and wellbeing! When combined with any Vivacity product program, <br/>the VioShift System is the premier method for obtaining maximum <br/>levels of vitality. Clear your mind. Nurture your body. <br/>Be vivacious. Live with Vivacity.<span class="brbottom"></span></h4>
         </div>
-
+        <img src="system/themes/awaken_cbd/images/cbdbg11.png" class="block11_imgtext2">
         <div class="clearfix"></div>
 
     </div>

@@ -1,6 +1,19 @@
 <?php
 
 global $AI;
+
+if(!isset($_SESSION['awaken-and-revive-affiliate']['form_data'])){
+
+    if(isset($AI->MODS_INDEX['google_ad'])){
+        require_once( ai_cascadepath( 'includes/modules/google_ad/includes/class.te_google_ad.php' ) );
+
+        $te_google_ad = new C_te_google_ad();
+
+        $te_google_ad->show_google_ad_value_traffic(5,util_rep_id());
+    }
+}
+
+
 require_once(ai_cascadepath('includes/plugins/landing_pages/class.landing_pages.php'));
 
 $landing_page = new C_landing_pages('awaken-and-revive-affiliate');
@@ -26,24 +39,36 @@ if(util_is_POST()) {
     $landing_page->validate();
     if($landing_page->has_errors()) { $landing_page->display_errors(); }
     else {
-        if($landing_page->save_lead($AI->get_setting('owner_id')))
-        {
-            // Subscribe them to the drip campaign
+
+
+        /*$landing_page->load_user_data_to_session();*/
+
+        if($AI->user->is_logged_in()){
             $landing_page->pp_drip_opt_in();
 
             $landing_page->goto_next_step();
+        }else{
+            if($landing_page->save_lead($AI->get_setting('owner_id')))
+            {
+                // Subscribe them to the drip campaign
+                //$landing_page->pp_drip_opt_in();
+
+                $landing_page->goto_next_step();
+            }
         }
+
+
     }
 }
 $landing_page->refill_form();
 
 ?>
 
-<div class="container-fluid topleftbg">
+<div class="container-fluid topleftbg topleftbg2">
 
     <div class="container-fluid toprightbg">
 
-        <div class="container AFF_topblock">
+        <div class="container AFF_topblock AFF_topblock2">
 
 
             <div class="row">
@@ -65,16 +90,24 @@ $landing_page->refill_form();
             <div class="row">
                 <div class="top_leftpart">
                     <img src="system/themes/awaken_and_revive/images/landing1_top_text4.png" class="righttext1">
-                    <h2>Maintain and Manage your Sexy  </h2>
-                    <h3> with this incredible new system!</h3>
 
-                    <img src="system/themes/awaken_and_revive/images/landing1_top_text2.png" class="lefttext1">
-                    <img src="system/themes/awaken_and_revive/images/landing1_top_text3.png" class="lefttext2">
+                    <img src="system/themes/awaken_and_revive/images/topblockimg12.png" class="topblockimg12">
 
-                    <div class="top_listcon">
+                    <div class="topblockimg12_text">
+                        <ul>
+                            <li>Increase Energy</li>
+                            <li>Balances Blood Sugar</li>
+                            <li>Appetite Suppressant</li>
+                            <li>Antioxidant</li>
+                            <li>Boots Immunity</li>
+                            <li>Balance Hormones</li>
+                        </ul>
+                    </div>
+
+                    <!--<div class="top_listcon">
                         <span>Increase Energy</span>                <span>Balances Blood Sugar</span>                  <span>Appetite Suppressant</span>
                         <span>Antioxidant</span>               <span>Boots Immunity</span>                <span>Balance Hormones</span>
-                    </div>
+                    </div>-->
 
                     <img src="system/themes/awaken_and_revive/images/affiliate_top_img1.png" class="affiliate_top_img1">
                     <img src="system/themes/awaken_and_revive/images/topproductbox.png" class="topproductbox">
@@ -97,10 +130,15 @@ $landing_page->refill_form();
 
                     </div>
                     <img src="system/themes/awaken_and_revive/images/topimg1.png" class="topimg1">
+                    <img src="system/themes/awaken_and_revive/images/topimg5.png" class="topimg5">
                 </div>
 
                 <div class="top_rightpart">
+                    <h3>We Cracked the Code </h3>
+                    <h3> to Permanent Weight Loss!</h3>
 
+                    <img src="system/themes/awaken_and_revive/images/landing1_top_text2.png" class="lefttext1">
+                    <img src="system/themes/awaken_and_revive/images/landing1_top_text3.png" class="lefttext2">
                     <div class="top_formwrapper">
                         <img src="system/themes/awaken_and_revive/images/landing1_top_formarrow.png" class="formarrow">
                         <h2>Get Started<br/>Now!</h2>
@@ -229,7 +267,7 @@ $landing_page->refill_form();
         <div class="block3_textwrapper">
 
 
-            <h2>True weight loss stems from consistent and small changes made to your supplemental, nutritional, and overall wellness lifestyle. Give your body the right amount of each ingredient needed to maintain a steady burn all day. As part of our <span>24-Hour Core Dynamics</span><br/>System, <strong class="textbold">Awaken</strong> keeps your body and mind active and alert while providing<br/>the daytime supplementation needed to experience <strong class="textbold">the Shift</strong>.</h2>
+            <h2>True weight loss stems from consistent and small changes made to your supplemental, nutritional, and overall wellness lifestyle. Give your body the right amount of <br/>each ingredient needed to maintain a steady burn all day. As part of our <br/><span>24-Hour Core Dynamics</span> System, <strong class="textbold">Awaken</strong> keeps your body and mind <br/>active and alert while providing the daytime supplementation needed <br/>to experience <strong class="textbold">the Shift</strong>.</h2>
 
             <h3>Green Coffee Bean, Rhodiola Rosea, Hoodia,Garcinia Cambogia,<br/>African Mango Seed Extract</h3>
 
@@ -239,7 +277,7 @@ $landing_page->refill_form();
 
         <img src="system/themes/awaken_and_revive/images/block3_img2.png" class="block3_img2">
 
-        <a href="javascript:void(0)" class="block3btn">GET THE 24-HOUR CORE DYNAMICS<br/>
+        <a href="javascript:void(0)" class="block3btn getmybottle">GET THE 24-HOUR CORE DYNAMICS<br/>
             SYSTEM RIGHT AWAY!</a>
 
     </div>
@@ -340,7 +378,7 @@ $landing_page->refill_form();
 
         </div>
 
-        <div class=" affblock5main_wrapper">
+        <div class=" affblock5main_wrapper affblock5main_wrapper1">
 
             <div class="block5_textwrapper">
 
@@ -355,7 +393,7 @@ $landing_page->refill_form();
 
             <img src="system/themes/awaken_and_revive/images/block5_img1.png" class="block5_img1">
 
-            <a href="javascript:void(0)" class="block5btn">GET THE 24-HOUR CORE DYNAMICS<br/>
+            <a href="javascript:void(0)" class="block5btn getmybottle">GET THE 24-HOUR CORE DYNAMICS<br/>
                 SYSTEM RIGHT AWAY!</a>
         </div>
     </div>
@@ -581,10 +619,11 @@ $landing_page->refill_form();
         </div>
         <div class="aff_block10main_wrapper">
             <div class="block10_textwrapper">
-                <h2>For lasting results with any of the Vivacity product lines, a total approach to wellness is required. Vivacity’s VioShift System expedites the experience of The Shift and guides you along the path of ultimate health and wellness. We believe so wholeheartedly in this approach, that when you purchase any product from Vivacity, you get instant access to all our VioShift programs! <span class="brbottom"></span>VioShift was developed as a progressive, 4/4 system and is designed to advance the levels of nutrition and mindfulness for any caliber of participant. VioPhaze provides education on proper nutrition and how to successfully re-train your dietary habits. <br/>VioPhotonics  equips you with the mental tools required to harness your <br/>inner strength and change the way you think to change your life. <span class="brbottom"></span>Embrace the mind-body connection and experience total health <br/>and wellbeing! When combined with any Vivacity product program, <br/>the VioShift System is the premier method for obtaining maximum <br/>levels of vitality. Clear your mind. Nurture your body. <br/>Be vivacious. Live with Vivacity.<span class="brbottom"></span></h2>
+                <h2>For lasting results with any of the Vivacity product lines, a total approach to wellness is required. Vivacity’s VioShift System expedites the experience of The Shift and guides you along the path of ultimate health and wellness. We believe so wholeheartedly in this approach, that when you purchase any product from Vivacity, you get instant access to all our VioShift programs! <span class="brbottom"></span>VioShift was developed as a progressive, 4/4 system and is designed to <br/>advance the levels of nutrition and mindfulness for any caliber of <br/>participant. VioPhaze provides education on proper nutrition and how <br/>to successfully re-train your dietary habits. VioPhotonics  equips you <br/>with the mental tools required to harness your inner strength and change the way <br/>you think to change your life. <span class="brbottom"></span>Embrace the mind-body connection and experience total health <br/>and wellbeing! When combined with any Vivacity product program, <br/>the VioShift System is the premier method for obtaining maximum <br/>evels of vitality. Clear your mind. Nurture your body. Be vivacious. <br/>Live with Vivacity.<span class="brbottom"></span></h2>
             <div class="clearfix"></div>
           </div>
         </div>
+        <img src="system/themes/awaken_and_revive/images/cbdbg11.png" class="block10_imgtext1">
     </div>
 </div>
 
@@ -597,7 +636,8 @@ $landing_page->refill_form();
                 </div>
                 <div class="aff_block11main_wrapper">
                     <div class="block11_textwrapper">
-                        <div class="topblockimg11_text">
+
+                        <div class="topblockimg8_text">
                             <ul>
                                 <li>IMPROVE YOUR DIET</li>
                                 <li>LOSE WEIGHT</li>
@@ -605,6 +645,17 @@ $landing_page->refill_form();
                                 <li>NUTRITIONAL EDUCATION</li>
                             </ul>
                         </div>
+                        <img src="system/themes/awaken_and_revive/images/block8_text2left.png" class="block8_text2left">
+                        <img src="system/themes/awaken_and_revive/images/cbdbg8left.png" class="block8_text2smlleft">
+
+                       <!-- <div class="topblockimg11_text">
+                            <ul>
+                                <li>IMPROVE YOUR DIET</li>
+                                <li>LOSE WEIGHT</li>
+                                <li>NURTURE YOUR BODY</li>
+                                <li>NUTRITIONAL EDUCATION</li>
+                            </ul>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -614,7 +665,15 @@ $landing_page->refill_form();
                 </div>
                 <div class="aff_block11main_wrapper">
                     <div class="block11_textwrapper">
-                        <div class="topblockimg11_text">
+                       <!-- <div class="topblockimg11_text">
+                            <ul>
+                                <li>GAIN ENLIGHTENMENT</li>
+                                <li>EXPERIENCE MENTAL CLARITY</li>
+                                <li>CONNECT WITH THE FIELD</li>
+                                <li>STRENGTHEN WILLPOWER</li>
+                            </ul>
+                        </div>-->
+                        <div class="topblockimg8_text">
                             <ul>
                                 <li>GAIN ENLIGHTENMENT</li>
                                 <li>EXPERIENCE MENTAL CLARITY</li>
@@ -622,6 +681,8 @@ $landing_page->refill_form();
                                 <li>STRENGTHEN WILLPOWER</li>
                             </ul>
                         </div>
+                        <img src="system/themes/awaken_and_revive/images/block8_text2right.png" class="block8_text2right">
+                        <img src="system/themes/awaken_and_revive/images/cbdbg8.png" class="block8_text2smlright">
                     </div>
                 </div>
             </div>
@@ -727,7 +788,7 @@ $landing_page->refill_form();
             <img src="system/themes/awaken_and_revive/images/affiliate_bloc4img.png" class="affiliate_bloc4img">
             <img src="system/themes/awaken_and_revive/images/block8_movileview.png" class="block8_movileview">
 
-            <a href="javascript:void(0)" class="block8btn">RUSH MY ORDER TODAY!</a>
+            <a href="javascript:void(0)" class="block8btn getmybottle">RUSH MY ORDER TODAY!</a>
         </div>
 
 

@@ -1,3 +1,5 @@
+a{ text-decoration:none!important; outline: none!important;}
+
 .aboutusblock1 span.titleinfo2{
     color: #242424;
     font-family: "RalewayBold";
@@ -44,25 +46,25 @@
 
 .opportunity_block_con:last-of-type{ padding-bottom: 0px;}
 
-.opportunity_block_con .opp_div1{ width: 320px; float: left;}
+.opportunity_block_con .opp_div1{ width: 280px; float: left;}
 
-.opportunity_block_con .opp_div1 img{ display: block; margin: 0 auto; margin-top: 25px; max-width: 100%;}
+.opportunity_block_con .opp_div1 img{ display: block; margin: 0 auto; margin-top: 0px; width: 260px;}
 
 
 .opportunity_block_con .opp_div2{ width: 360px; float: left; padding: 0 10px;}
 
-.opportunity_block_con .opp_div2 h2{ margin: 0; padding: 0; font-family: 'EngraversGothicBT'; font-size: 48px; color: #1d1d1d; text-transform: uppercase;}
+.opportunity_block_con .opp_div2 h2{ margin: 0; padding: 0; font-family: 'EngraversGothicBT'; font-size: 32px; color: #1d1d1d; text-transform: uppercase;}
 
 .opportunity_block_con .opp_div2 h3{ margin: 0; padding: 10px 0 0 0;  font-family: 'RalewayRegular'; font-size: 14px; color: #393838; line-height: 22px; }
 .opportunity_block_con .opp_div2 h3 span{ color: #e10227;}
 
-.opportunity_block_con .opp_div3{ width:224px; float: left; padding: 20px 15px;  min-height: 360px;}
+.opportunity_block_con .opp_div3{ width:266px; float: left; padding: 20px 15px;  min-height: 320px;}
 
 .opportunity_block_con .opp_div3 h4{ font-size: 30px; color: #dc1f90; margin: 0; padding: 0;   font-family: 'RalewayBold'; text-transform: uppercase;}
 .opportunity_block_con .opp_div3 h5{ font-size: 20px; color: #2d2d2d; margin: 0; padding: 10px 0;    font-family: 'RalewayRegular';}
 .opportunity_block_con .opp_div3 ul{ margin: 0; padding: 0;}
 
-.opportunity_block_con .opp_div3 ul li{ list-style: none; margin: 6px 0; font-size: 16px; color: #3e520c; font-family: 'RalewayRegular'; padding-left: 22px; background: url(../images/ad_text_bullate.jpg) no-repeat left center;}
+.opportunity_block_con .opp_div3 ul li{ list-style: none; margin: 6px 0; font-size: 16px; color: #3e520c; font-family: 'RalewayRegular'; padding-left: 20px; background: url(../images/ad_text_bullate.jpg) no-repeat left center;}
 
 
 
@@ -103,7 +105,7 @@
 
 .opportunity_block_con .opp_div4{ width:348px; float: right;  }
 
-.opportunity_block_con .opp_div4 a{ margin-top: 52px; width: 166px; height: 50px; border-radius: 4px; line-height: 45px; background: #fff; border:  solid 2px #006fdf; font-size: 16px; color: #006fdf; text-align: center;   font-family: 'RalewaySemiBold'; text-transform: uppercase; text-decoration: none!important;}
+.opportunity_block_con .opp_div4 a{ margin-top: 12px; width: 166px; height: 50px; border-radius: 4px; line-height: 45px; background: #fff; border:  solid 2px #006fdf; font-size: 16px; color: #006fdf; text-align: center;   font-family: 'RalewaySemiBold'; text-transform: uppercase; text-decoration: none!important;}
 .opportunity_block_con .opp_div4 .opplink_pro1{ display: block; float: left;}
 .opportunity_block_con .opp_div4 .opplink_pro2{ display: block; float: right;}
 
@@ -177,9 +179,164 @@
 .cannabinoides_h6text2 span{ color: #d90253;}
 
 
+
+
+
+.programopModablock .modal-content{ border: solid 5px #688816;}
+
+/*.programopModablock .modal-dialog{}*/
+.programopModablock .modal-title{ font-size: 20px; color: #688816;      font-family: 'OpenSans-Semibold'; }
+
+.programopModablock .modal-header .close{font-size: 26px; color: #688816; border: none; box-shadow: none; opacity: 10; }
+
+
+.opportunity_logoimg{ display: block; margin: 0 auto; width: 280px; margin-top: 10px;}
+
+.programopModablock h3{ margin: 0; padding: 20px;    font-family: 'MyriadProRegular'; font-size: 16px; line-height: 24px; text-align: center;}
+
+.programopModablock h3 img{ display: block; width: 280px; margin: 0 auto; margin-bottom: 20px; display: none;}
+
+.aboutusblock1newtext{color: #2a2929;
+    font-family: "RalewayRegular";
+    font-size: 18px;
+    line-height: 30px; padding-bottom: 50px;}
+
+.aboutusblock1newtext ul{ padding-bottom: 30px;}
+
+.aboutusblock1newtext .aboutimg3new{ display: inline; float: left; margin: 0 20px 20px 0;}
+
+
+
+
+
+.topmenumodal .modal-content{ border: solid 5px #688816;}
+
+.topmenumodal .modal-header .close{font-size: 26px; color: #688816; border: none; box-shadow: none; opacity: 10; }
+
+
+.topmenumodal .modal-header{ border:none!important; min-height: inherit!important; height: 20px!important;}
+
+.topmenumodal h4{     font-family: 'OpenSans-Semibold'; font-size: 40px; line-height: 46px; text-align: center; padding: 35px 0; text-transform: uppercase; color: #688816;}
+
+.footermodel .modal-content{ border: solid 5px #688816;}
+.footermenumodal .modal-dialog{ width:80%; color: #333;}
+
+.footermenumodal .modal-body{ padding: 35px;}
+.footermenumodal h2{ color: #387414; font-size: 24px;}
+.footermenumodal b strong{ color: #387414; font-size: 24px;}
+
+.footermenumodal label{ color: #387414; }
+
+.footermenumodal a{ color: #333; text-decoration: underline; cursor: pointer; }
+
+.footermenumodal a:hover{ color: #387414; text-decoration: none; }
+
+.footermenumodal .classdiv1_new{ margin: 0 0 15px 0;}
+
+.footermenumodal .classdiv1{ margin: 0 0 15px 0;}
+
+.footermenumodal .classdiv2{ margin: 0 0 15px 0px;}
+
+
+.footermenumodal .btnjoinnow{ cursor: pointer;}
+
+
+.footermenumodal .close{ box-shadow:none!important; outline: none;}
+
+.footermenumodal .modal-header .close {
+    background: #323232 !important;
+    opacity: 1;
+    color: #fff;
+    padding: 5px 9px;
+    border-radius: 100%;
+    margin-top: -7px;
+    margin-right: -10px;
+}
+
+
+
+
+.footermenumodal .modal-header {
+    background: #397714;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 73px;}
+
+
+
+.footermenumodal .modal-header{background: #397714; width: 100%; margin: 0; padding: 0; min-height: 73px;border-radius-topleft:6px;
+    border-radius-topright:6px; -webkit-border-radius-topleft:6px; -webkit-border-radius-topright:6px; -moz-border-radius-topleft:6px;    -moz-border-radius-topright:6px;}
+.footermenumodal .modal-header h4.modal-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'OpenSansBold';
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 37px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 18px;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.40);
+}
+
+.footermenumodal .modal-header .close{background: #323232 !important; opacity: 1; color: #fff; padding: 5px 9px; border-radius: 100%;margin-top: -7px; margin-right: -10px;}
+
+.footermenumodal b{
+    font-family: 'MyriadProRegular';
+    font-size: 16px;
+    line-height: 25px;
+    color: #333;
+    display: block;
+
+    font-weight: normal; background: url("../images/popupicon.png") no-repeat left 8px; padding: 0 0 10px 15px;
+}
+
+
+.footermenumodal .modal-dialog{ width:80%; color: #333;}
+
+.footermenumodal .modal-body{ padding: 35px;}
+.footermenumodal h2{ color: #387414; font-size: 24px;}
+.footermenumodal b strong{ color: #387414; font-size: 24px;}
+
+.footermenumodal label{ color: #387414; }
+
+.footermenumodal a{ color: #333; text-decoration: underline; cursor: pointer; }
+
+.footermenumodal a:hover{ color: #387414; text-decoration: none; }
+
+
+.new_homeimg{ width: 480px; margin-top: 0px; float: right;}
+
+.homeblock2wrapper {
+    padding-left: 210px !important;
+
+}
+
+
+.bynowopponew{ background: #006fdf!important; color: #fff!important;}
+
 /*================================================================================================*/
 /*========================================== Media Css  ==========================================*/
 /*================================================================================================*/
+
+@media only screen and (max-width: 1680px) {
+    .homeblock2wrapper {
+        padding-left: 150px !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 1360px) {
+    .new_homeimg{ width: 430px; margin-top: 0px; float: right;}
+
+    .homeblock2wrapper {
+        padding-left: 100px !important;
+    }
+
+}
 
 @media only screen and (max-width: 1300px) {
 .aboutusblock1 p img.aboutimg1{ margin-left: 20px;}
@@ -202,7 +359,27 @@
 
 }
 
+@media only screen and (max-width: 1280px) {
+    .new_homeimg{ width: auto; display:block; margin: 0 auto; margin-top: 10px; float: none; max-width: 100%;}
+
+    .homeblock2wrapper {
+        padding-left: 0px !important;
+    }
+
+    .homeblock2content{ width: 100%!important; padding-top: 25px!important;}
+
+    .homeblock2{ padding-bottom: 0px!important;}
+
+    .homeblock2content p{padding-left: 10px!important; padding-right: 10px!important; }
+
+    .homeblock2videocontent{ width: 100%!important; margin: 0!important; padding: 0!important; text-align: center;}
+
+}
+
+
 @media only screen and (max-width: 1260px) {
+    .opportunity_block_con .opp_div1 img{ max-width: inherit; width: 280px!important;}
+
 .cannabinoides_block3_left {
     width: 420px;
     float: left;
@@ -229,7 +406,7 @@
 @media only screen and (max-width: 1280px) {
     .opportunity_block_con .opp_div1 {
         float: left;
-        width: 310px;
+        width: 280px;
     }
 
     .opportunity_block_con .opp_div2 {
@@ -240,9 +417,9 @@
 
     .opportunity_block_con .opp_div3 {
         float: left;
-        min-height: 360px;
+        min-height: 320px;
         padding: 20px 15px;
-        width: 200px;
+        width: 260px;
     }
 
 }
@@ -307,7 +484,7 @@
 
     .aboutusblock1 span.titleheadlinenew2{display: block;
         float: left;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         margin-top: 17px;
         text-align: center;
         width: 100%;}
@@ -336,7 +513,7 @@
 
 @media only screen and (max-width: 680px) {
 
-
+    .aboutusblock1newtext .aboutimg3new{ display: block; float: none; margin: 0 auto; margin-bottom: 35px; max-width: 100%;}
     .aboutusblock1 p img.aboutimg2new{
         float: none;
 
@@ -392,3 +569,48 @@
     .cannabinoides_block3_left h1{text-align: center;}
     .cannabinoides_wrapper2 .cannabinoides_block2_left h1{text-align: center;}
 }
+
+
+.homeblock10contentwrapper{ padding-top: 25px;}
+
+
+.prodinfohrline{ margin-bottom: 29px;}
+
+
+
+.innerpageprodcontentboxwrapper  .titlespanlistheader {
+    font-family: "RalewayBold";
+    font-size: 18px;
+    color: #000000;
+    line-height: 18px;
+    margin-bottom: 18px;
+    margin-left: 10px;
+    display: block;
+}
+
+
+.innerpageprodcontentboxwrapper .titlespaninfo {
+    font-family: "RalewayRegular";
+    font-size: 15px;
+    color: #333333;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 24px;
+    margin-top: 10px; margin-left: 24px;
+}
+
+
+.viproductlistsinfo div {
+    font-family: "RalewayRegular";
+    font-size: 15px;
+    color: #333333;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 24px;
+    margin-top: 10px;
+}
+
+
+.viproductlistsinfowrapper  .col-md-3 .infohead6{ margin-bottom: 17px!important;}
+
+
