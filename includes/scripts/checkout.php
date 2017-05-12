@@ -47,7 +47,7 @@ $landing_page->no_ship_addr = true;
 if(util_is_POST()) {
     $pcost = $_POST['pcost'];
 
-    $lookup_userID = db_lookup_scalar("SELECT cost FROM `shipping_by_price` WHERE `min` < ".intval($pcost)." && `max` >= ".intval($pcost));
+    $lookup_userID = db_lookup_scalar("SELECT cost FROM `shipping_by_price` WHERE `min` < ".(int)db_in($pcost)." && `max` >= ".(int)db_in($pcost));
 
     $shiping_cost = intval($lookup_userID);
 

@@ -12,12 +12,16 @@ $landing_page->pp_create_campaign = true;
 
 $landing_page->add_validator('first_name', 'is_length', 3,'Invalid First Name');
 $landing_page->add_validator('last_name', 'is_length', 3,'Invalid Last Name');
+$landing_page->add_validator('email', 'util_is_email','','Invalid Email Address');
+$landing_page->add_validator('phone', 'is_phone','','Invalid Phone Number');
+$landing_page->add_validator('zip', 'is_length',1,'Invalid Zip Code');
+/*
 $landing_page->add_validator('address', 'is_length', 3,'Invalid Address');
 $landing_page->add_validator('city', 'is_length', 3,'Invalid City');
 $landing_page->add_validator('state', 'is_length',1,'Invalid State');
 $landing_page->add_validator('zip', 'is_length',1,'Invalid Zip Code');
 $landing_page->add_validator('phone', 'is_phone','','Invalid Phone Number');
-$landing_page->add_validator('email', 'util_is_email','','Invalid Email Address');
+$landing_page->add_validator('email', 'util_is_email','','Invalid Email Address');*/
 
 
 if(util_is_POST()) {
@@ -57,27 +61,36 @@ $landing_page->refill_form();
 
             <div class="toplogodiv"> <img src="system/themes/awaken_cbd/images/cbd_logo.png" class="toplogo"></div>
 
-            <img src="system/themes/awaken_cbd/images/topblockimg1.png" class="topblockimg1">
-            <img src="system/themes/awaken_cbd/images/topblockimg2.png" class="topblockimg2">
+            <img src="system/themes/awaken_cbd/images/topblockimg1_new.png" class="topblockimg1">
+          <!--  <img src="system/themes/awaken_cbd/images/topblockimg2.png" class="topblockimg2">-->
 
             <img src="system/themes/awaken_cbd/images/topblockimg3.png" class="topblockimg3">
             <img src="system/themes/awaken_cbd/images/topblockimg4.png" class="topblockimg4">
-            <img src="system/themes/awaken_cbd/images/topblockimg9.png" class="topblockimg9">
+            <img src="system/themes/awaken_cbd/images/topblockimg9_new.png" class="topblockimg9">
 
             <div class="topblockimg9_text">
                 <ul>
-                    <li>Reduce Pain</li>
+                   <!-- <li>Reduce Pain</li>
                     <li>Relieve Anxiety</li>
                     <li>Increase Health</li>
-                    <li>Feel Amazing</li>
+                    <li>Feel Amazing</li>-->
+
+                    <li>Antioxidant</li>
+                    <li>Anti-inflammatory</li>
+                    <li>Overall Health Promoter</li>
+                    <li> Promotes Emotional Wellbeing</li>
+                    <li>  Relieve Pain</li>
+                    <li>   Reduce Stress </li>
+                    <li>    Increase Health </li>
+                    <li>     Feel Amazing </li>
 
                 </ul>
 
             </div>
 
 
-            <img src="system/themes/awaken_cbd/images/topblockimg5.png" class="topblockimg5">
-            <img src="system/themes/awaken_cbd/images/topblockimg6.png" class="topblockimg6">
+            <img src="system/themes/awaken_cbd/images/xcellerate_new_toppro.png" class="topblockimg5">
+         <!--   <img src="system/themes/awaken_cbd/images/topblockimg6.png" class="topblockimg6">-->
 
   <div class="top_arrow_div"> <img src="system/themes/awaken_cbd/images/topblockimg7.png" class="topblockimg7"></div>
 
@@ -100,12 +113,14 @@ $landing_page->refill_form();
 
     <input type="text" name="first_name" placeholder="First Name" class="form-control">
     <input type="text" name="last_name" placeholder="Last Name" class="form-control">
-    <textarea name="address" class="form-control2" placeholder=" Address"></textarea>
+    <!--<textarea name="address" class="form-control2" placeholder=" Address"></textarea>
     <input type="text" name="city" placeholder="City" class="form-control">
-    <?php $landing_page->draw_region_select('',true,'US','state','form-control'); ?>
-    <input type="text" name="zip" placeholder="Zip Code" class="form-control">
-    <input type="text" name="phone" placeholder="Telephone Number" class="form-control">
+    --><?php /*$landing_page->draw_region_select('',true,'US','state','form-control'); */?>
     <input type="email" name="email" placeholder="Email Address" class="form-control">
+    <input type="text" name="phone" placeholder="Phone Number" class="form-control">
+    <input type="text" name="zip" placeholder="Zip Code" class="form-control">
+
+
     <!--<textarea name="admin_notes" class="form-control2" placeholder=" Comments"></textarea>-->
     <!--<input type="text" name="company" placeholder="Business Neme" class="form-control">-->
     <input type="submit" class="topsubbtn" value="Rush my order">
@@ -125,32 +140,37 @@ $landing_page->refill_form();
 
 <div class="awakencbdblock2_bgwrapper">
 
-
     <div class="container-fluid awakencbdblock2">
         <div class="container block2wrapper">
-            <h2><span>Xcellerate </span> Your Health !</h2>
+            <h2><span>HAVE YOU  </span> HEARD ABOUT THE  <br/> INCREDIBLE CANNABINOID CBD?</h2>
 
-            <h4>Xcellerate is the latest break-through in Cannabinoid Spectrum Whole Foods Supplement that is finally available in the US! This powerful supplement is an accelerant to any lifestyle health program or supplement and will put you on track for TOTAL health and wellbeing. Not feeling like yourself?<br>
-                <br>
-
-
-                Have you felt tired and in pain for what seems like years? Are you having trouble losing weight? Do you feel older beyond your years? Are you often anxious and have trouble concentrating? If any of these things sounds familiar, you are in the right place to finally feel better; to feel like the best you. </h4>
-
+            <h4><p>inflammation, and cell damage in your body? What about one that can reduce your stress, promote emotional wellbeing, and help brighten your moods?<br><br> Want something that can increase your health and promote continual healing in your body? Do you want to feel amazing both in body and mind? Do you want to accelerate the effects and health benefits of your other supplements?</p>
+                <p> This may seem like magic, but it’s not. Our powerhouse Cannabinoid Spectrum Whole Foods Supplement in Xcellerate can do it all!</p>
+                <p> Xcellerate is the premier break-through<br>
+                product that uses the power of<br>
+                Cannabinoid Whole Spectrum Foods<br>
+                Supplement to provide full body and<br>
+                mind wellness supplementation.<br>
+                Xcellerate provides numerous health<br>
+                benefits while also acting as a<br>
+                potent enhancement to any other<br>
+                supplements in your routine.</p>
+            </h4>
             <div class="block2_bottom_imgcon_wrapper">
                 <div class=" block2_bottom_imgcon1">
                     <img src="system/themes/awaken_cbd/images/block1_img3.png" class="block1_img3">
                     <h6>Safe and Effective</h6>
                 </div>
 
-                <div class=" block2_bottom_imgcon1">
+               <!-- <div class=" block2_bottom_imgcon1">
                     <img src="system/themes/awaken_cbd/images/block1_img4.png" class="block1_img4">
                     <h6>Clinically Validated</h6>
                 </div>
-
+-->
 
                 <div class=" block2_bottom_imgcon1">
                     <img src="system/themes/awaken_cbd/images/block1_img5.png" class="block1_img5">
-                    <h6>100% All-Natural</h6>
+                    <h6>non-psychoactive</h6>
                 </div>
 
 
@@ -212,7 +232,8 @@ $landing_page->refill_form();
 
             <h1>
                 <img src="system/themes/awaken_cbd/images/block2_text1.png" class="block3_text1">
-                <span>Benefits of AWAKEN cbd</span>
+                <!--<span>Benefits of AWAKEN cbd</span>-->
+                <span>Benefits of Xcellerate</span>
             </h1>
 
             <div class="block3_img_con">
@@ -442,7 +463,7 @@ $landing_page->refill_form();
         <div class=" block5_text_wrapper">
 
 
-            <h4><span>Xcellerate </span> is a powerful new wellness supplement with ingredients that are proven by the latest in scientific research to make a real difference in total mind and body health. <span>Xcellerate</span> contains Cannabinoid Spectrum Whole Food Supplement, a single molecule that can do amazing things when connected to the rest of the cannabinoid spectrum. Combining full spectrum cannabinoids is the ultimate X-factor for enhancing and stabilizing your health. </h4>
+           <!-- <h4><span>Xcellerate </span> is a powerful new wellness supplement with ingredients that are proven by the latest in scientific research to make a real difference in total mind and body health. <span>Xcellerate</span> contains Cannabinoid Spectrum Whole Food Supplement, a single molecule that can do amazing things when connected to the rest of the cannabinoid spectrum. Combining full spectrum cannabinoids is the ultimate X-factor for enhancing and stabilizing your health. </h4>
 
 
             <div class="block5_left_list">
@@ -458,7 +479,28 @@ $landing_page->refill_form();
 
             </div>
 
-            <h5><span>Xcellerate </span> is an effective Cannabinoid Spectrum Whole Foods Supplement that offers amazing benefits while being completely safe and legal in the United States. Order today to experience the amazing qualities of <span>Xcellerate </span>. </h5>
+            <h5><span>Xcellerate </span> is an effective Cannabinoid Spectrum Whole Foods Supplement that offers amazing benefits while being completely safe and legal in the United States. Order today to experience the amazing qualities of <span>Xcellerate </span>. </h5>-->
+
+
+            <h4><span>Xcellerate</span> is a Powerhouse of Potency!</h4>
+
+
+            <div class="block5_left_list">
+                <ul>
+
+                    <li><span>High</span> Therapeutic Value</li>
+                    <li><span>Powerful</span> Health Promoter </li>
+                    <li><span>100%</span> Non-Toxic </li>
+                    <li><span>Holistic</span> All-Natural </li>
+                    <li><span>100%</span>-Oxidant </li>
+                    <li><span>Whole</span> Mind and Body Wellness</li>
+                </ul>
+
+
+            </div>
+
+            <h5>You’ll wonder why you weren’t prescribed this by a <span>doctor!</span></h5>
+
 
             <div class="block5_procon">
                 <img src="system/themes/awaken_cbd/images/block5_img3.png" class="block5_proing">
@@ -529,26 +571,95 @@ $landing_page->refill_form();
 
     </div>-->
 
-<div class="container-fluid awakencbdblock7">
+
+<!--<div class="container-fluid awakencbdblock7">
 
     <div class="container block7wrapper">
 
         <h1>
             <img src="system/themes/awaken_cbd/images/block7_text1.png" class="block7_text1">
-            <span>VIOSHIFT : KNOWLEDGE IS POWER</span>
+            <span>VIOSHIFT – THE POWERFUL MIND AND BODY REVOLUTION</span>
         </h1>
-
-        <div class="block7_text_con">
-            <h4>For lasting results with any of the Vivacity product lines, a total approach to wellness is required. Vivacity’s VioShift System expedites the experience of The Shift and guides you along the path of ultimate health and wellness. We believe so wholeheartedly in this approach, that when you purchase any product from Vivacity, you get instant access to all our VioShift programs! <span class="brbottom"></span>VioShift was developed as a progressive, 4/4 system and is designed to advance the levels of nutrition and mindfulness for any caliber of participant. VioPhaze provides education on proper nutrition and how to successfully <br/>re-train your dietary habits. VioPhotonics equips you with the mental <br/>tools required to harness your inner strength and change the way <br/>you think to change your life. <span class="brbottom"></span>Embrace the mind-body connection and experience total health <br/>and wellbeing! When combined with any Vivacity product program, <br/>the VioShift System is the premier method for obtaining maximum <br/>levels of vitality. Clear your mind. Nurture your body. <br/>Be vivacious. Live with Vivacity.<span class="brbottom"></span></h4>
-        </div>
-        <img src="system/themes/awaken_cbd/images/cbdbg11.png" class="block11_imgtext2">
-        <div class="clearfix"></div>
 
     </div>
 
-</div>
+       <div class="block7_text_con_newblock">
 
-<div class="container-fluid awakencbdblock8">
+            <div class="container block7wrapper">
+
+            <div class="block7_text_con_newblock_top">
+
+                <h6>ENHANCE YOUR MIND, TRANSFORM YOUR BODY</h6>
+                <h4><p>Discover what you need to know to completely transform your  lifestyle and become the happy, vibrant, and successful person you want to be.<br><br></p>
+                    <p> Develop deep knowledge and receive effective trainings from <br>experts in the industry on how to manage your physical health through <br>nutrition and develop a powerful, positive mindset that will allow you to <br>achieve great success in an area of your life.<br><br></p>
+                    <p>Get instant access to both VioShift programs with any purchase of a <br>Vivacity product!</p>
+                </h4>
+
+             </div>
+
+
+
+            <div class="block7_text_con_newblock_bottom">
+
+                <div class="block7_text_newleft">
+
+                    <h2>VIOPHAZE</h2>
+                   <div class="h2devider"></div>
+                    <ul>
+                        <li>Advanced Nutrition Plans</li>
+                        <li>Control Eating Habits</li>
+                        <li> Lose Weight</li>
+                        <li> Become Healthy</li>
+                    </ul>
+
+                </div>
+
+                <div class="block7_text_newright">
+
+                    <h2>VIOPHOTONICS </h2>
+                    <div class="h2devider"></div>
+                    <ul>
+                        <li>Strengthen Willpower</li>
+                        <li>Increase Mental Control</li>
+                        <li>Gain Healthy Mindset</li>
+                        <li>Practice Energetic Healing</li>
+                    </ul>
+
+                </div>
+
+
+
+                <div class="clearfix"></div>
+                </div>
+
+
+
+
+            </div>
+
+
+         </div>
+
+        <div class="clearfix"></div>
+
+</div>-->
+
+
+
+
+
+<!--
+          <div class="block7_text_con">
+
+
+          <h4><p>Discover what you need to know to completely transform your  lifestyle and become the happy, vibrant, and successful person you want to be.<br><br></p>
+              <p> Develop deep knowledge and receive effective trainings from <br>experts in the industry on how to manage your physical health through <br>nutrition and develop a powerful, positive mindset that will allow you to <br>achieve great success in an area of your life.<br><br></p>
+              <p>Get instant access to both <strong>VioShift</strong> programs with any purchase of a <br><strong>Vivacity</strong> product!</p>
+          </h4>
+
+          </div>
+          <img src="system/themes/awaken_cbd/images/cbdbg11.png" class="block11_imgtext2">-->
+<!--<div class="container-fluid awakencbdblock8">
     <div class="container block8wrapper">
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 block8_con1">
@@ -586,7 +697,7 @@ $landing_page->refill_form();
             <div class="clearfix"></div>
         </div>
     </div>
-</div>
+</div>-->
 
 
 <div class="container-fluid aff_block10">

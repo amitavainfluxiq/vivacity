@@ -1,6 +1,7 @@
 <?php
 
-$p_res = db_query("SELECT `p`.`product_id`,`p`.`title`,`p`.`description`,`p`.`features`,`p`.`benefits`,`p`.`img_url`,`ps`.`stock_item_id`,`ps`.`price` FROM `products` `p` INNER JOIN `products2folders` `pf` ON `p`.`product_id`=`pf`.`product_id` INNER JOIN `product_stock_items` `ps` ON `p`.`product_id`=`ps`.`product_id` WHERE `pf`.`folderID`=11 GROUP BY `ps`.`product_id` ORDER BY `p`.`title`");
+//$p_res = db_query("SELECT `p`.`product_id`,`p`.`title`,`p`.`description`,`p`.`features`,`p`.`benefits`,`p`.`img_url`,`ps`.`stock_item_id`,`ps`.`price`,`ps`.`alt_prices` FROM `products` `p` INNER JOIN `products2folders` `pf` ON `p`.`product_id`=`pf`.`product_id` INNER JOIN `product_stock_items` `ps` ON `p`.`product_id`=`ps`.`product_id` WHERE `pf`.`folderID`=11 GROUP BY `ps`.`product_id` ORDER BY `p`.`product_id`");
+$p_res = db_query("SELECT `p`.`product_id`,`p`.`title`,`p`.`description`,`p`.`features`,`p`.`benefits`,`p`.`img_url`,`ps`.`stock_item_id`,`ps`.`price`,`ps`.`alt_prices` FROM `products` `p` INNER JOIN `product_stock_items` `ps` ON `p`.`product_id`=`ps`.`product_id` WHERE `p`.`product_id` IN (9,25,26,27) GROUP BY `ps`.`product_id` ORDER BY `p`.`sort_order`");
 
 $product_arr = array();
 
@@ -15,6 +16,12 @@ while($p_res && $product = db_fetch_assoc($p_res)) {
     }
 
     $product['img_path'] = $img_path;
+    $altprice=unserialize($product['alt_prices']);
+
+    $product['price']=$product['price'];
+    if($AI->user->account_type == 'Distributor' && $altprice[0]['price']!=0){
+        $product['price']= $altprice[0]['price'];
+    }
 
     $product_arr[] = $product;
 
@@ -59,11 +66,11 @@ if(!isset($_POST['bill_same_as_ship'])){
     $landing_page->add_validator('ship_phone', 'is_phone','','Invalid Shipping Phone Number');
 }
 
-$landing_page->add_validator('card_name', 'is_length', 3,'Invalid Name on Card');
-$landing_page->add_validator('card_number', 'is_length', 14,'Invalid Card Number');
-$landing_page->add_validator('card_type', 'is_length', 2,'Invalid Card Type');
-$landing_page->add_validator('card_exp_mo', 'card_expire_check', '','Invalid Card Expiration');
-$landing_page->add_validator('card_cvv', 'is_length', 3,'Invalid Card Security Code (CVV)');
+//$landing_page->add_validator('card_name', 'is_length', 3,'Invalid Name on Card');
+//$landing_page->add_validator('card_number', 'is_length', 14,'Invalid Card Number');
+//$landing_page->add_validator('card_type', 'is_length', 2,'Invalid Card Type');
+//$landing_page->add_validator('card_exp_mo', 'card_expire_check', '','Invalid Card Expiration');
+//$landing_page->add_validator('card_cvv', 'is_length', 3,'Invalid Card Security Code (CVV)');
 
 $landing_page->add_validator('check_terms','is_checked','','You must accept the Terms &amp; Conditions');
 
@@ -145,13 +152,16 @@ if(util_is_POST()) {
                 //$landing_page->save_user('Distributor');
                 if($landing_page->has_errors()) { $landing_page->display_errors(); }
                 else {
-                    $landing_page->save_user('Distributor');
+                    $landing_page->save_user('Customer');
                     //save oreder
                     $landing_page->save_order();
+
+                    //~ db_query("update users set account_type='Distributor' where userID=".$landing_page->session['created_user']);
+                    //~ ^Removed this, we should not be changing to Distributor - Jon 2017.04.06
                     if ($landing_page->has_errors()) {
                         $landing_page->display_errors();
                     } else {
-                        $created_user = $landing_page->session['created_user'];
+                          $created_user = $landing_page->session['created_user'];
                         $created_order = $landing_page->session['created_order'];
 
                         $landing_page->clear_session();
@@ -240,7 +250,7 @@ $ship_arr = array();
 
 if(count($price_arr)){
     foreach ($price_arr as $val){
-        $res = db_query("SELECT * FROM `shipping_by_price` WHERE `min` <".($val+29.95)." && `max` >=".($val+29.95));
+        $res = db_query("SELECT * FROM `shipping_by_price` WHERE `min` <".($val)." && `max` >=".($val));
         $ship_arr[$val] = 6;
         while($res && $row = db_fetch_assoc($res)) {
             $ship_arr[$val] = $row['cost'];
@@ -250,6 +260,7 @@ if(count($price_arr)){
     $ship_str = json_encode($ship_arr);
 
 }
+
 
 
 ?>
@@ -328,13 +339,13 @@ if(count($price_arr)){
 
 
 
-        var totalamnt = parseFloat(price+shipping+tax+29.95);
+        var totalamnt = parseFloat(price+shipping+tax);
         //alert(totalamnt);
 
         $('#ptitle').text(ptitle);
         $('#pprice').text(price.toFixed(2));
         $('#pamnt').text(price.toFixed(2));
-        $('#psubtotal').text((price+29.95).toFixed(2));
+        $('#psubtotal').text((price).toFixed(2));
         $('#pship').text(shipping.toFixed(2));
         $('#shipping').val(shipping.toFixed(2));
         $('#ptax').text(tax.toFixed(2));
@@ -343,14 +354,14 @@ if(count($price_arr)){
 
         $.post('gettax',{stock_item_id:stock_item_id,bill_first_name:$('#bill_first_name').val(),bill_last_name:$('#bill_last_name').val(),bill_address_line_1:$('#bill_address_line_1').val(),bill_city:$('#bill_city').val(),bill_region:$('#bill_region').val(),bill_country:$('#bill_country').val(),bill_postal_code:$('#bill_postal_code').val(),email:$('#bill_email').val(),phone:$('#bill_phone').val(),ship_first_name:$('#ship_first_name').val(),ship_last_name:$('#ship_last_name').val(),ship_address_line_1:$('#ship_address_line_1').val(),ship_city:$('#ship_city').val(),ship_region:$('#ship_region').val(),ship_country:$('#ship_country').val(),ship_postal_code:$('#ship_postal_code').val()},function(res){
 
-            tax = res+tax;
+            tax = res;
             tax = parseFloat(tax);
-            var totalamnt = price+shipping+tax+29.55;
+            var totalamnt = price+shipping+tax;
             $('#ptax').text(tax.toFixed(2));
             $('#ptotal').text(totalamnt.toFixed(2));
 
         });
-        $.post('gettax',{stock_item_id:1,bill_first_name:$('#bill_first_name').val(),bill_last_name:$('#bill_last_name').val(),bill_address_line_1:$('#bill_address_line_1').val(),bill_city:$('#bill_city').val(),bill_region:$('#bill_region').val(),bill_country:$('#bill_country').val(),bill_postal_code:$('#bill_postal_code').val(),email:$('#bill_email').val(),phone:$('#bill_phone').val(),ship_first_name:$('#ship_first_name').val(),ship_last_name:$('#ship_last_name').val(),ship_address_line_1:$('#ship_address_line_1').val(),ship_city:$('#ship_city').val(),ship_region:$('#ship_region').val(),ship_country:$('#ship_country').val(),ship_postal_code:$('#ship_postal_code').val()},function(res1){
+        /*$.post('gettax',{stock_item_id:1,bill_first_name:$('#bill_first_name').val(),bill_last_name:$('#bill_last_name').val(),bill_address_line_1:$('#bill_address_line_1').val(),bill_city:$('#bill_city').val(),bill_region:$('#bill_region').val(),bill_country:$('#bill_country').val(),bill_postal_code:$('#bill_postal_code').val(),email:$('#bill_email').val(),phone:$('#bill_phone').val(),ship_first_name:$('#ship_first_name').val(),ship_last_name:$('#ship_last_name').val(),ship_address_line_1:$('#ship_address_line_1').val(),ship_city:$('#ship_city').val(),ship_region:$('#ship_region').val(),ship_country:$('#ship_country').val(),ship_postal_code:$('#ship_postal_code').val()},function(res1){
 
             tax = res1+tax;
             //alert(res1);
@@ -359,11 +370,11 @@ if(count($price_arr)){
             $('#ptax').text(tax.toFixed(2));
             $('#ptotal').text(totalamnt.toFixed(2));
 
-        });
+        });*/
 
     }
-    
-    
+
+
     function bill_ship_same(is_chk) {
 
         if(is_chk == 1){
@@ -388,19 +399,19 @@ if(count($price_arr)){
     $(window).load(function () {
         $('#bynowoppo11').click();
     });
-    
+
 </script>
 
 <div class="container-fluid innerpagetitleblock text-center">
 <div class="innerpagetitleblockwrapper">
-    <h1>PREQUALIFY</h1>
+    <h1>PREQUALIFY<!--PREQUALIFY--></h1>
 </div>
 </div>
 
 <div class="container-fluid">
     <div class="container containerwrapper">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 aboutusblock1 aboutusblock1newtext">
+            <div style="display: none; width: 100%; float: none;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 aboutusblock1 aboutusblock1newtext">
                 <div style="display: none; width: 100%; float: none;" class="newpdiv">
 
                     <span class="titleinfo">Vivacity’s Mission Statement</span>
@@ -472,8 +483,7 @@ if(count($price_arr)){
 
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 aboutusblock1">
-                <span class="titleinfo2">Choose From Any Of our Programs and you’re pre-qualified to become
-a promoter</span>
+                <span class="titleinfo2">CHOOSE ANY OF OUR DYNAMIC DUO PACKS AND PREQUALIFY TO BECOME A PROMOTER<!--CHOOSE ANY OF OUR PROGRAMS AND PRE-QUALIFY TO BECOME A PROMOTER--></span>
 
 
 
@@ -494,9 +504,10 @@ a promoter</span>
         </div>
         <div class="opp_div2">
             <h2><?php echo @$product_arr[0]['title']?></h2>
-            <h3>Live Well:  BALANCE Your Being.  BALANCE is the ultimate supplement formulated for amplified body-equilibrium. BALANCE works as an essential element to experiencing The Shift by assisting the necessary preparation of body and mind for experiencing lasting success in our VioPhaze and VioFit programs. That is why we established it as the foundational first-half of our 4-step total wellness philosophy!
-<br/><br/>
-                Now you can benefit more from your body’s natural 24-hour cycle.
+            <h3><!--Live Well:  BALANCE Your Being.  BALANCE is the ultimate supplement formulated for amplified body-equilibrium. BALANCE works as an essential element to experiencing The Shift by assisting the necessary preparation of body and mind for experiencing lasting success in our VioPhaze and VioFit programs. That is why we established it as the foundational first-half of our 4-step total wellness philosophy!-->Live well and be balanced. Balance is the ultimate supplement formulated for amplified body-equilibrium. Balance works as an essential element to experiencing The Shift by assisting the necessary preparation of body and mind for experiencing lasting success in our VioPhaze and VioPhotonics programs. That is why it has become one of our most popular Duo Packs!
+
+                <br/><br/>
+               <!-- Now you can benefit more from your body’s natural 24-hour cycle.-->Now you can benefit more from your body’s natural 24-hour cycle with the powerful combination of Awaken and Recover.
             </h3>
         </div>
         <div class="opp_div3">
@@ -511,17 +522,24 @@ a promoter</span>
                 <li>Strains and Sprains</li>
                 <li>Repetitive Motion</li>-->
 
-                <li>Blood Sugar Control</li>
+               <!-- <li>Blood Sugar Control</li>
                 <li>Increased Energy</li>
                 <li>Boost Immune System</li>
                 <li>Antioxidant</li>
                 <li>Improved Attention Span</li>
                 <li> Promotes Hormonal Balance</li>
                 <li> Reduces Free Radicals</li>
-                <li> Improves Sleep</li>
+                <li> Improves Sleep</li>-->
                 <!--<li> Increases Benefits Sleep</li>
                 <li>Increases Serotonin</li>-->
-
+                <li>Controls Blood Sugar</li>
+                <li>Increases Energy</li>
+                <li>Boosts Immune System</li>
+                <li>Provides Antioxidants</li>
+                <li>Improves Attention Span</li>
+                <li>Promotes Hormonal Balance</li>
+                <li>Reduces Free Radicals</li>
+                <li>Improves Sleep</li>
             </ul>
         </div>
         <div class="opp_div4">
@@ -546,9 +564,9 @@ a promoter</span>
                         <h3>
                             <img src="<?php echo @$product_arr[0]['img_path']?>" >
 
-                            Live Well:  BALANCE Your Being.  BALANCE is the ultimate supplement formulated for amplified body-equilibrium. BALANCE works as an essential element to experiencing The Shift by assisting the necessary preparation of body and mind for experiencing lasting success in our VioPhaze and VioFit programs. That is why we established it as the foundational first-half of our 4-step total wellness philosophy!
+                            <!--Live Well:  BALANCE Your Being.  BALANCE is the ultimate supplement formulated for amplified body-equilibrium. BALANCE works as an essential element to experiencing The Shift by assisting the necessary preparation of body and mind for experiencing lasting success in our VioPhaze and VioFit programs. That is why we established it as the foundational first-half of our 4-step total wellness philosophy!-->Live well and be balanced. Balance is the ultimate supplement formulated for amplified body-equilibrium. Balance works as an essential element to experiencing The Shift by assisting the necessary preparation of body and mind for experiencing lasting success in our VioPhaze and VioPhotonics programs. That is why it has become one of our most popular Duo Packs!
                             <br/><br/>
-                            Now you can benefit more from your body’s natural 24-hour cycle.
+                            <!--Now you can benefit more from your body’s natural 24-hour cycle.-->Now you can benefit more from your body’s natural 24-hour cycle with the powerful combination of Awaken and Recover.
                         </h3>
                         <div class="clearfix"></div>
 
@@ -564,9 +582,9 @@ a promoter</span>
         </div>
         <div class="opp_div2">
             <h2><?php echo @$product_arr[1]['title']?></h2>
-            <h3>The SYNERGY program has been formulated with your mental and emotional health in mind. SYNERGY is the ultimate upgrade to BALANCE for those who wish to get the most from the <i>24-Hour Core Dynamics System</i>. Say goodbye to stress and distraction with SYNERGY! One of the biggest reliefs Americans seek today is a reprieve from the effects of stress.<br />
+            <h3><!--The SYNERGY program has been formulated with your mental and emotional health in mind. SYNERGY is the ultimate upgrade to BALANCE for those who wish to get the most from the <i>24-Hour Core Dynamics System</i>. Say goodbye to stress and distraction with SYNERGY! One of the biggest reliefs Americans seek today is a reprieve from the effects of stress.-->The Synergy Dynamic Duo Pack has been formulated with your mental and physical health in mind. Synergy is the ultimate Dynamic Duo Pack for those who wish to get the most out of their day. Say goodbye to a foggy mind stressed by distraction and fatigue with Synergy! One of the biggest benefits Synergy provides is a clear and focused mind for a new you.<br />
                 <br />
-                SYNERGY combines BALANCE with ACUITY and SERENITY to provide the perfect balance of body, mind and emotions. <!--SYNERGY and aids BALANCE in helping your reach homeostasis. Feel clear and relaxed with SYNERGY.--></h3>
+                Synergy combines Awaken with Acuity to provide the perfect balance of a healthy body, with a strong and clear mind.<!--SYNERGY combines BALANCE with ACUITY and SERENITY to provide the perfect balance of body, mind and emotions.--> <!--SYNERGY and aids BALANCE in helping your reach homeostasis. Feel clear and relaxed with SYNERGY.--></h3>
         </div>
         <div class="opp_div3">
             <h4>Benefits</h4>
@@ -579,16 +597,22 @@ a promoter</span>
                 <li>Abnormal Posture</li>
                 <li>Strains and Sprains</li>
                 <li>Repetitive Motion</li>-->
-                <li>Increases Clarity</li>
+                <!--<li>Increases Clarity</li>
                 <li>Promotes Focus</li>
                 <li>Aids in Learning</li>
                 <li>Increases Memory</li>
                 <li>Increases Wellbeing</li>
                 <li> Promotes Calm</li>
                 <li>Relieves Stress</li>
-                <li> Lowers Cortisol Levels</li>
-
-
+                <li> Lowers Cortisol Levels</li>-->
+                <li>Increases Clarity</li>
+                <li>Promotes Focus</li>
+                <li>Aids in Learning</li>
+                <li>Increases Memory Function</li>
+                <li>Improves Attention Span</li>
+                <li>Provides Antioxidants</li>
+                <li>Promotes Weight Loss</li>
+                <li>Increases Energy</li>
             </ul>
         </div>
         <div class="opp_div4">
@@ -610,9 +634,9 @@ a promoter</span>
                     <div class="modal-body">
                         <img src="system/themes/vivacity_frontend/images/logo-vivacity.png" class="opportunity_logoimg">
 
-                        <h3> <img src="<?php echo @$product_arr[1]['img_path']?>" > The SYNERGY program has been formulated with your mental and emotional health in mind. SYNERGY is the ultimate upgrade to BALANCE for those who wish to get the most from the <i>24-Hour Core Dynamics System</i>. Say goodbye to stress and distraction with SYNERGY! One of the biggest reliefs Americans seek today is a reprieve from the effects of stress.<br />
+                        <h3> <img src="<?php echo @$product_arr[1]['img_path']?>" > The Synergy Dynamic Duo Pack has been formulated with your mental and physical health in mind. Synergy is the ultimate Dynamic Duo Pack for those who wish to get the most out of their day. Say goodbye to a foggy mind stressed by distraction and fatigue with Synergy! One of the biggest benefits Synergy provides is a clear and focused mind for a new you.<!--The SYNERGY program has been formulated with your mental and emotional health in mind. SYNERGY is the ultimate upgrade to BALANCE for those who wish to get the most from the <i>24-Hour Core Dynamics System</i>. Say goodbye to stress and distraction with SYNERGY! One of the biggest reliefs Americans seek today is a reprieve from the effects of stress.--><br />
                             <br />
-                            SYNERGY combines BALANCE with ACUITY and SERENITY to provide the perfect balance of body, mind and emotions. SYNERGY and aids BALANCE in helping your reach homeostasis. Feel clear and relaxed with SYNERGY.</h3>
+                            Synergy combines Awaken with Acuity to provide the perfect balance of a healthy body, with a strong and clear mind.<!--SYNERGY combines BALANCE with ACUITY and SERENITY to provide the perfect balance of body, mind and emotions. SYNERGY and aids BALANCE in helping your reach homeostasis. Feel clear and relaxed with SYNERGY.--></h3>
                         <div class="clearfix"></div>
 
                     </div>
@@ -626,10 +650,10 @@ a promoter</span>
         </div>
         <div class="opp_div2">
             <h2><?php echo @$product_arr[2]['title']?></h2>
-            <h3>VIBRANCY springboards you from great health to incredible vitality. Elevate your health to new heights! Uplift your wellbeing. Imagine if you could store the fountain of youth in a bottle and take it with you wherever you go!<br />
+            <h3>Vibrancy springboards you from great health to incredible vitality. Elevate your health to new heights! Regain the energy and mobility of your youth and amplify your athletic ability. Imagine if you could store the fountain of youth in a bottle and take it with you wherever you go!<!--VIBRANCY springboards you from great health to incredible vitality. Elevate your health to new heights! Uplift your wellbeing. Imagine if you could store the fountain of youth in a bottle and take it with you wherever you go!--><br />
                 <br />
 
-                By combining the beneficial features of BALANCE (the foundation of our <i>24-Hour Core Dynamics System</i>), along with the powerful energy boost sparked by IGNITE EFC, and the additional benefits of REPLENISH… </h3>
+                <!--By combining the beneficial features of BALANCE (the foundation of our <i>24-Hour Core Dynamics System</i>), along with the powerful energy boost sparked by IGNITE EFC, and the additional benefits of REPLENISH…-->By combining the beneficial features of Mobility along with the powerful energy boost sparked by Ignite EFC, you will feel like a new you.</h3>
         </div>
         <div class="opp_div3">
             <h4>Benefits</h4>
@@ -643,13 +667,18 @@ a promoter</span>
                 <li>Strains and Sprains</li>
                 <li>Repetitive Motion</li>-->
                 <li>Increases Focus</li>
-                <li> Promotes Mental Clarity</li>
-                <li> Provides Lasting Energy</li>
-                <li> Enhances Mood</li>
+                <li>Promotes Mental Clarity</li>
+                <li>Provides Lasting Energy</li>
+                <li>Increases Memory Function</li>
+                <li>Improves Attention Span</li>
+                <li>Decreases Inflammation</li>
+                <li>Promotes Joint Health</li>
+                <li>Increases Energy</li>
+                <!--<li> Enhances Mood</li>
                 <li> Beautifies Skin</li>
                 <li>Increases Total Body Health</li>
                 <li>Reinvigorates Cells</li>
-                <li>Promotes Cellular Healing</li>
+                <li>Promotes Cellular Healing</li>-->
 
 
             </ul>
@@ -673,10 +702,10 @@ a promoter</span>
                     <div class="modal-body">
                         <img src="system/themes/vivacity_frontend/images/logo-vivacity.png" class="opportunity_logoimg">
 
-                        <h3>  <img src="<?php echo @$product_arr[2]['img_path']?>" > VIBRANCY springboards you from great health to incredible vitality. Elevate your health to new heights! Uplift your wellbeing. Imagine if you could store the fountain of youth in a bottle and take it with you wherever you go!<br />
+                        <h3>  <img src="<?php echo @$product_arr[2]['img_path']?>" > <!--VIBRANCY springboards you from great health to incredible vitality. Elevate your health to new heights! Uplift your wellbeing. Imagine if you could store the fountain of youth in a bottle and take it with you wherever you go!-->Vibrancy springboards you from great health to incredible vitality. Elevate your health to new heights! Regain the energy and mobility of your youth and amplify your athletic ability. Imagine if you could store the fountain of youth in a bottle and take it with you wherever you go!<br />
                             <br />
 
-                            By combining the beneficial features of BALANCE (the foundation of our <i>24-Hour Core Dynamics System</i>), along with the powerful energy boost sparked by IGNITE EFC, and the additional benefits of REPLENISH…</h3>
+                           <!-- By combining the beneficial features of BALANCE (the foundation of our <i>24-Hour Core Dynamics System</i>), along with the powerful energy boost sparked by IGNITE EFC, and the additional benefits of REPLENISH…-->By combining the beneficial features of Mobility along with the powerful energy boost sparked by Ignite EFC, you will feel like a new you.</h3>
 
                    <div class="clearfix"></div>
                     </div>
@@ -690,10 +719,10 @@ a promoter</span>
         </div>
         <div class="opp_div2">
             <h2><?php echo @$product_arr[3]['title']?></h2>
-            <h3>VITALITY is the premier package for your body’s maintenance. When combined with BALANCE, VITALITY is fortified with <i>Vivacity’s 24-Hour Core Dynamics System</i>. Reach beyond your physical limits with VITALITY. VITALITY rids the body of sugar and removes inflammation. Upgrade to the VITALITY program and we know you will feel great! Your body will thank us for VITALITY.<br />
+            <h3><!--VITALITY is the premier package for your body’s maintenance. When combined with BALANCE, VITALITY is fortified with <i>Vivacity’s 24-Hour Core Dynamics System</i>. Reach beyond your physical limits with VITALITY. VITALITY rids the body of sugar and removes inflammation. Upgrade to the VITALITY program and we know you will feel great! Your body will thank us for VITALITY.-->Vitality is the premier package for your body’s maintenance. When our incredible Awaken and Acuity products are combined your vital health is fortified and enhanced. Reach beyond your physical limits with Vitality! Vitality rids the body of toxins and decreases inflammation. Upgrade to a new and improved you with the Vitality Dynamic Duo Pack! Your body will thank you.<br />
                 <br />
 
-                VITALITY aids in digestion, making your internal ecosystem work as it should.  Increase your performance and boost your energy with VITALITY. </h3>
+                <!--VITALITY aids in digestion, making your internal ecosystem work as it should.  Increase your performance and boost your energy with VITALITY.-->Vitality aids in the body to increase energy and promote healthy movement. Increase your performance and boost your energy with Vitality.</h3>
         </div>
         <div class="opp_div3">
             <h4>Benefits</h4>
@@ -707,15 +736,23 @@ a promoter</span>
                 <li>Strains and Sprains</li>
                 <li>Repetitive Motion</li>-->
 
-                <li>Aids in Weight Loss</li>
+               <!-- <li>Aids in Weight Loss</li>
                 <li>Balances Blood Sugar</li>
                 <li> Increase Insulin Production</li>
                 <li>Reduce Cravings</li>
                 <li>Reduces Inflammation</li>
                 <li>Decreases Swelling</li>
                 <li> Neutralizes Free Radicals</li>
-                <li>Reduces Pain</li>
+                <li>Reduces Pain</li>-->
                <!-- <li>Soothes Arthritis</li>-->
+                <li>Increases Energy</li>
+                <li>Reduces Inflammation</li>
+                <li>Provides Lasting Energy</li>
+                <li>Neutralizes Free Radicals</li>
+                <li>Fortifies Health</li>
+                <li>Decreases Swelling</li>
+                <li>Promotes Joint Health</li>
+                <li>Provides Antioxidants</li>
             </ul>
         </div>
         <div class="opp_div4">
@@ -738,10 +775,10 @@ a promoter</span>
 
                         <img src="system/themes/vivacity_frontend/images/logo-vivacity.png" class="opportunity_logoimg">
 
-                        <h3> <img src="<?php echo @$product_arr[3]['img_path']?>" > VITALITY is the premier package for your body’s maintenance. When combined with BALANCE, VITALITY is fortified with <i>Vivacity’s 24-Hour Core Dynamics System</i>. Reach beyond your physical limits with VITALITY. VITALITY rids the body of sugar and removes inflammation. Upgrade to the VITALITY program and we know you will feel great! Your body will thank us for VITALITY.<br />
+                        <h3> <img src="<?php echo @$product_arr[3]['img_path']?>" > <!--VITALITY is the premier package for your body’s maintenance. When combined with BALANCE, VITALITY is fortified with <i>Vivacity’s 24-Hour Core Dynamics System</i>. Reach beyond your physical limits with VITALITY. VITALITY rids the body of sugar and removes inflammation. Upgrade to the VITALITY program and we know you will feel great! Your body will thank us for VITALITY.-->Vitality is the premier package for your body’s maintenance. When our incredible Awaken and Acuity products are combined your vital health is fortified and enhanced. Reach beyond your physical limits with Vitality! Vitality rids the body of toxins and decreases inflammation. Upgrade to a new and improved you with the Vitality Dynamic Duo Pack! Your body will thank you.<br />
                             <br />
 
-                            VITALITY aids in digestion, making your internal ecosystem work as it should.  Increase your performance and boost your energy with VITALITY. </h3>
+                            <!--VITALITY aids in digestion, making your internal ecosystem work as it should.  Increase your performance and boost your energy with VITALITY.-->Vitality aids in the body to increase energy and promote healthy movement. Increase your performance and boost your energy with Vitality.</h3>
 
                         <div class="clearfix"></div>
                     </div>
@@ -749,6 +786,9 @@ a promoter</span>
             </div>
         </div>
     </div>
+
+
+
 
 
 </div>
@@ -766,7 +806,7 @@ a promoter</span>
                 <input type="hidden" name="ship_country" id="ship_country" value="US">
 
                 <input name="pid[]" type="hidden" value="" id="pid">
-                <input name="pid[]" type="hidden" value="1" id="pid1">
+                <!--<input name="pid[]" type="hidden" value="1" id="pid1">-->
                 <input name="shipping" type="hidden" value="0" id="shipping">
 
 
@@ -830,14 +870,14 @@ if(!isset($landing_page->session['created_user'])) {
 
                 <div class="form-group">
                     <label for="bill_first_name">First Name<span>*</span></label>
-                    <input type="text"  class="form-control fieldcommon"  name="bill_first_name" id="bill_first_name" />
+                    <input type="text"  class="form-control"  name="bill_first_name" id="bill_first_name" />
                 </div>
 
 
 
                 <div class="form-group">
                     <label for="bill_last_name">Last Name<span>*</span></label>
-                    <input type="text"  class="form-control fieldcommon"  name="bill_last_name" id="bill_last_name" />
+                    <input type="text"  class="form-control"  name="bill_last_name" id="bill_last_name" />
                 </div>
 
 
@@ -850,7 +890,7 @@ if(!isset($landing_page->session['created_user'])) {
 
                 <div class="form-group">
                     <label for="bill_address_line_2">Address 2</label>
-                    <textarea class="form-control fieldcommon" name="bill_address_line_2" id="bill_address_line_2"></textarea>
+                    <textarea class="form-control" name="bill_address_line_2" id="bill_address_line_2"></textarea>
                 </div>
                 <div class="clearfix"></div>
                 <div class="form-group">
@@ -882,7 +922,7 @@ if(!isset($landing_page->session['created_user'])) {
 
 
                 <div class="clearfix"></div>
-                <div class="hrlinenew shipbillcls"></div>
+                <div class="hrlinenew"></div>
                 <div class=" singlecolumn">
                     <h5 style="float: none; margin: 0; padding:0px; font-weight: normal;">
                         <div class="checkbox">
@@ -902,11 +942,11 @@ if(!isset($landing_page->session['created_user'])) {
 
                 <div class="form-group shipbillcls">
                     <label for="ship_first_name">First Name<span>*</span></label>
-                    <input type="text"  class="form-control fieldcommon"  name="ship_first_name" id="ship_first_name" />
+                    <input type="text"  class="form-control"  name="ship_first_name" id="ship_first_name" />
                 </div>
                 <div class="form-group shipbillcls">
                     <label for="ship_last_name">Last Name<span>*</span></label>
-                    <input type="text"  class="form-control fieldcommon"  name="ship_last_name" id="ship_last_name" />
+                    <input type="text"  class="form-control"  name="ship_last_name" id="ship_last_name" />
                 </div>
                 <div class="form-group shipbillcls">
                     <label for="ship_address_line_1">Address<span>*</span></label>
@@ -914,7 +954,7 @@ if(!isset($landing_page->session['created_user'])) {
                 </div>
                 <div class="form-group shipbillcls">
                     <label for="ship_address_line_2">Address 2</label>
-                    <textarea class="form-control fieldcommon" name="ship_address_line_2" id="ship_address_line_2"></textarea>
+                    <textarea class="form-control" name="ship_address_line_2" id="ship_address_line_2"></textarea>
                 </div>
                 <div class="clearfix"></div>
                 <div class="form-group shipbillcls">
@@ -969,17 +1009,17 @@ if(!isset($landing_page->session['created_user'])) {
                                 <td><span id="pquan">0</span></td>
                                 <td>$<span id="pamnt">0.00</span></td>
                             </tr>
-                            <tr>
+                            <!--<tr>
                                 <td><span id="ptitle">Membership</span></td>
                                 <td>$<span id="pprice">29.95</span></td>
                                 <td><span id="pquan">1</span></td>
                                 <td>$<span id="pamnt">29.95</span></td>
-                            </tr>
+                            </tr>-->
                             <tr>
                                 <td></td>
                                 <td></td>
                                 <td>Sub-Total</td>
-                                <td>$<span id="psubtotal">29.95</span></td>
+                                <td>$<span id="psubtotal">0.00</span></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -997,7 +1037,7 @@ if(!isset($landing_page->session['created_user'])) {
                                 <td></td>
                                 <td></td>
                                 <td>TOTAL</td>
-                                <td>$<span id="ptotal">29.95</span></td>
+                                <td>$<span id="ptotal">0.00</span></td>
                             </tr>
                         </table>
                     </div>
@@ -1040,14 +1080,14 @@ if(!isset($landing_page->session['created_user'])) {
 
 
 
-                <h2>TERMS & CONDITIONS</h2>
+                <!--<h2>TERMS & CONDITIONS</h2>
 
                 <div class="form-group singlecolumn tctext hide">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum lobortis metus vel vulputate. Maecenas imperdiet purus a velit egestas egestas. Nullam in velit vitae massa dapibus dignissim lacinia id urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id quam aliquet, porttitor magna at, mattis augue. Vestibulum pellentesque aliquet fermentum. Nulla facilisi. Pellentesque at fermentum metus. Integer pulvinar massa in ligula pulvinar, molestie mattis ligula gravida. Vivamus ut sem a nulla fringilla dictum ut eu tellus. Mauris non arcu facilisis, dignissim enim vitae, pellentesque sem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum lobortis metus vel vulputate. Maecenas imperdiet purus a velit egestas egestas. Nullam in velit vitae massa dapibus dignissim lacinia id urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id quam aliquet, porttitor magna at, mattis augue. Vestibulum pellentesque aliquet fermentum. Nulla facilisi. Pellentesque at fermentum metus. Integer pulvinar massa in ligula pulvinar, molestie mattis ligula gravida. Vivamus ut sem a nulla fringilla dictum ut eu tellus. Mauris non arcu facilisis, dignissim enim vitae, pellentesque sem.</p>
-                </div>
+                </div>-->
                 <div class="clearfix"></div>
                 <div class=" singlecolumn">
-                    <h5 style="float: none; margin: 25px 0 0 0; padding:0px; font-weight: normal;">
+                    <h5 style="float: none; margin: 0px 0 0 0; padding:0px; font-weight: normal;">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" id="iagreetoit" name="check_terms" value="1" />

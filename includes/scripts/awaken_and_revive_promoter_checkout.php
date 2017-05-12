@@ -372,6 +372,9 @@ foreach ($price_arr as $val){
 
     });
 
+    $(window).load(function () {
+        $('#pbtn54').click();
+    });
 </script>
 
 
@@ -409,78 +412,6 @@ foreach ($price_arr as $val){
 
     <div class="vcproduct_block_newwrapper">
 
-        <?php if(count($product1)>0){
-            ?>
-
-            <div class="vcproduct_block_table">
-                <table width="100%" border="0">
-                    <tr>
-                        <th colspan="2"><?php echo $product1['title'] ?></th>
-                    </tr>
-
-                    <tr>
-                        <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product1['img_url'] ?>">
-                            <!-- <img class="img-responsive" src="system/themes/awaken_and_revive/images/balance_pro1.png">-->
-                        </td>
-                        <td align="center" valign="middle" class="balance_pro_text">
-                            <h2>Buy 1</h2>
-                            <h3> $<?php echo $product1['price'] ?></h3>
-
-                            <input class="pselbtn" id="pbtn<?php echo $product1['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product1['title'] ?>" pprice="<?php echo $product1['price'] ?>" stock_item_id="<?php echo $product1['stock_item_id'] ?>">
-
-                        </td>
-                    </tr>
-                </table>
-
-            </div>
-        <?php }?>
-        <?php if(count($product2)>0){
-            ?>
-            <div class="vcproduct_block_table">
-                <table width="100%" border="0">
-                    <tr>
-                        <th colspan="2"><?php echo $product2['title'] ?></th>
-                    </tr>
-
-                    <tr>
-                        <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product2['img_url'] ?>"></td>
-                        <td align="center" valign="middle" class="balance_pro_text">
-
-                            <h3> $<?php echo number_format($product2['price'], 2, '.', ''); ?></h3>
-                            <h4>Only pay </h4>
-                            <h5>$<?php echo number_format($product2['price']/3, 2, '.', '') ?>  </h5>
-                            <h6>Per Program! </h6>
-                            <input class="pselbtn" id="pbtn<?php echo $product2['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product2['title'] ?>" pprice="<?php echo $product2['price'] ?>" stock_item_id="<?php echo $product2['stock_item_id'] ?>">
-                        </td>
-                    </tr>
-                </table>
-
-            </div>
-        <?php }?>
-        <?php if(count($product3)>0){
-            ?>
-            <div class="vcproduct_block_table">
-                <table width="100%" border="0">
-                    <tr>
-                        <th colspan="2"><?php echo $product3['title'] ?> </th>
-                    </tr>
-
-                    <tr>
-                        <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product3['img_url'] ?>"></td>
-                        <td align="center" valign="middle" class="balance_pro_text">
-
-                            <h3> $<?php echo number_format($product3['price'], 2, '.', ''); ?></h3>
-                            <h4>Only pay </h4>
-                            <h5>$<?php echo number_format($product3['price']/5, 2, '.', '') ?>  </h5>
-                            <h6>Per Program! </h6>
-                            <input class="pselbtn" id="pbtn<?php echo $product3['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product3['title'] ?>" pprice="<?php echo $product3['price'] ?>" stock_item_id="<?php echo $product3['stock_item_id'] ?>">
-                        </td>
-                    </tr>
-                </table>
-
-            </div>
-        <?php }?>
-
         <?php if(count($product3)>0){
             ?>
             <div class="vcproduct_block_table">
@@ -506,6 +437,83 @@ foreach ($price_arr as $val){
 
             </div>
         <?php }?>
+
+
+
+        <?php if(count($product3)>0){
+            ?>
+            <div class="vcproduct_block_table">
+                <table width="100%" border="0">
+                    <tr>
+                        <th colspan="2"><?php echo $product3['title'] ?> </th>
+                    </tr>
+
+                    <tr>
+                        <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product3['img_url'] ?>"></td>
+                        <td align="center" valign="middle" class="balance_pro_text">
+
+                            <h3> $<?php echo number_format($product3['price'], 2, '.', ''); ?></h3>
+                            <h4>Only pay </h4>
+                            <h5>$<?php echo number_format($product3['price']/5, 2, '.', '') ?>  </h5>
+                            <h6>Per Program! </h6>
+                            <input class="pselbtn" id="pbtn<?php echo $product3['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product3['title'] ?>" pprice="<?php echo $product3['price'] ?>" stock_item_id="<?php echo $product3['stock_item_id'] ?>">
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        <?php }?>
+
+        <?php if(count($product2)>0){
+            ?>
+            <div class="vcproduct_block_table">
+                <table width="100%" border="0">
+                    <tr>
+                        <th colspan="2"><?php echo $product2['title'] ?></th>
+                    </tr>
+
+                    <tr>
+                        <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product2['img_url'] ?>"></td>
+                        <td align="center" valign="middle" class="balance_pro_text">
+
+                            <h3> $<?php echo number_format($product2['price'], 2, '.', ''); ?></h3>
+                            <h4>Only pay </h4>
+                            <h5>$<?php echo number_format($product2['price']/3, 2, '.', '') ?>  </h5>
+                            <h6>Per Program! </h6>
+                            <input class="pselbtn" id="pbtn<?php echo $product2['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product2['title'] ?>" pprice="<?php echo $product2['price'] ?>" stock_item_id="<?php echo $product2['stock_item_id'] ?>">
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        <?php }?>
+        <?php if(count($product1)>0){
+            ?>
+
+            <div class="vcproduct_block_table">
+                <table width="100%" border="0">
+                    <tr>
+                        <th colspan="2"><?php echo $product1['title'] ?></th>
+                    </tr>
+
+                    <tr>
+                        <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product1['img_url'] ?>">
+                            <!-- <img class="img-responsive" src="system/themes/awaken_and_revive/images/balance_pro1.png">-->
+                        </td>
+                        <td align="center" valign="middle" class="balance_pro_text">
+                            <h2>Buy 1</h2>
+                            <h3> $<?php echo $product1['price'] ?></h3>
+
+                            <input class="pselbtn" id="pbtn<?php echo $product1['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product1['title'] ?>" pprice="<?php echo $product1['price'] ?>" stock_item_id="<?php echo $product1['stock_item_id'] ?>">
+
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        <?php }?>
+
+
       <!--  <div class="vcproduct_block_table vcproductactiveblock">
             <table width="100%" border="0">
                 <tr>
@@ -621,7 +629,7 @@ foreach ($price_arr as $val){
 
 
 <form name="landing_page" id="landing_page" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
-    <input type="hidden" name="bill_country" value="US">
+    <input type="hidden" id="bill_country" name="bill_country" value="US">
     <input type="hidden" name="ship_country" value="US">
     <input name="pid" type="hidden" value="" id="pid">
     <input name="shipping" type="hidden" value="0" id="shipping">

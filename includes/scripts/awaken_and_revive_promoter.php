@@ -27,12 +27,16 @@ $landing_page->pp_create_campaign = true;
 
 $landing_page->add_validator('first_name', 'is_length', 3,'Invalid First Name');
 $landing_page->add_validator('last_name', 'is_length', 3,'Invalid Last Name');
+$landing_page->add_validator('email', 'util_is_email','','Invalid Email Address');
+$landing_page->add_validator('phone', 'is_phone','','Invalid Phone Number');
+$landing_page->add_validator('zip', 'is_length',1,'Invalid Zip Code');
+/*
 $landing_page->add_validator('address', 'is_length', 3,'Invalid Address');
 $landing_page->add_validator('city', 'is_length', 3,'Invalid City');
 $landing_page->add_validator('state', 'is_length',1,'Invalid State');
 $landing_page->add_validator('zip', 'is_length',1,'Invalid Zip Code');
 $landing_page->add_validator('phone', 'is_phone','','Invalid Phone Number');
-$landing_page->add_validator('email', 'util_is_email','','Invalid Email Address');
+$landing_page->add_validator('email', 'util_is_email','','Invalid Email Address');*/
 
 
 
@@ -152,12 +156,14 @@ $landing_page->refill_form();
 
                         <input type="text" name="first_name" placeholder="First Name" class="form-control">
                         <input type="text" name="last_name" placeholder="Last Name" class="form-control">
-                        <textarea name="address" class="form-control2" placeholder=" Address"></textarea>
+                       <!-- <textarea name="address" class="form-control2" placeholder=" Address"></textarea>
                         <input type="text" name="city" placeholder="City" class="form-control">
-                        <?php $landing_page->draw_region_select('',true,'US','state','form-control'); ?>
+                        --><?php /*$landing_page->draw_region_select('',true,'US','state','form-control'); */?>
+                            <input type="email" name="email" placeholder="Email Address" class="form-control">
+                            <input type="text" name="phone" placeholder="Phone Number" class="form-control">
                         <input type="text" name="zip" placeholder="Zip Code" class="form-control">
-                        <input type="text" name="phone" placeholder="Telephone Number" class="form-control">
-                        <input type="email" name="email" placeholder="Email Address" class="form-control">
+
+
                         <!--<input type="text" name="company" placeholder="Business Neme" class="form-control">-->
                         <!--<textarea name="admin_notes" class="form-control2" placeholder=" Comments"></textarea>-->
                         <input type="submit" class="topsubbtn" value="Rush my order">
@@ -613,19 +619,78 @@ $landing_page->refill_form();
 <div class="container-fluid aff_block10">
     <div class="container affblock10wrapper">
         <div class="aff_block10_heading">
-            <h2>VIOSHIFT : <span>KNOWLEDGE IS POWER</span></h2>
+            <h2>VIOSHIFT : <span>THE POWERFUL MIND AND BODY REVOLUTION</span></h2>
+            <h3><!--ENHANCE YOUR MIND, TRANSFORM YOUR BODY-->ENHANCE YOUR MIND, TRANSFORM YOUR BODY - COMES FREE WITH YOUR BALANCE PROGRAM PURCHASE!</h3>
         </div>
-        <div class="aff_block10main_wrapper">
+        <!--<div class="aff_block10main_wrapper">
             <div class="block10_textwrapper">
-                <h2>For lasting results with any of the Vivacity product lines, a total approach to wellness is required. Vivacity’s VioShift System expedites the experience of The Shift and guides you along the path of ultimate health and wellness. We believe so wholeheartedly in this approach, that when you purchase any product from Vivacity, you get instant access to all our VioShift programs! <span class="brbottom"></span>VioShift was developed as a progressive, 4/4 system and is designed to <br/>advance the levels of nutrition and mindfulness for any caliber of <br/>participant. VioPhaze provides education on proper nutrition and how <br/>to successfully re-train your dietary habits. VioPhotonics  equips you <br/>with the mental tools required to harness your inner strength and change the way <br/>you think to change your life. <span class="brbottom"></span>Embrace the mind-body connection and experience total health <br/>and wellbeing! When combined with any Vivacity product program, <br/>the VioShift System is the premier method for obtaining maximum <br/>evels of vitality. Clear your mind. Nurture your body. Be vivacious. <br/>Live with Vivacity.<span class="brbottom"></span></h2>
+                <h2><p>Discover what you need to know to completely transform your  <br>lifestyle and become the happy, vibrant, and successful person <br>you want to be.<br><br></p>
+                    <p>Develop deep knowledge and receive effective trainings from experts in the <br>industry on how to manage your physical health through nutrition and develop <br>a powerful, positive mindset that will allow you to achieve great success <br>in an area of your life.<br><br></p>
+                    <p>Get instant access to both <strong>VioShift</strong> programs with any purchase of a <strong>Vivacity</strong> product!</p></h2>
                 <div class="clearfix"></div>
             </div>
         </div>
-        <img src="system/themes/awaken_and_revive/images/cbdbg11.png" class="block10_imgtext1">
+        <img src="system/themes/awaken_and_revive/images/cbdbg11.png" class="block10_imgtext1">-->
+        <div class="block7_text_con_newblock">
+
+            <div class="container block7wrapper">
+
+                <div class="block7_text_con_newblock_top">
+
+                  <!--  <h6>ENHANCE YOUR MIND, TRANSFORM YOUR BODY</h6>-->
+                    <h4><p>Discover what you need to know to completely transform your  lifestyle and become the happy, vibrant, and successful person you want to be.<br><br></p>
+                        <p> Develop deep knowledge and receive effective trainings from <br>experts in the industry on how to manage your physical health through <br>nutrition and develop a powerful, positive mindset that will allow you to <br>achieve great success in an area of your life.<br><br></p>
+                        <p>Get instant access to both VioShift programs with any purchase of a <br>Vivacity product!</p>
+                    </h4>
+
+                </div>
+
+
+
+                <div class="block7_text_con_newblock_bottom">
+
+                    <div class="block7_text_newleft">
+
+                        <h2>VIOPHAZE</h2>
+                        <div class="h2devider"></div>
+                        <ul>
+                            <li>Advanced Nutrition Plans</li>
+                            <li>Control Eating Habits</li>
+                            <li> Lose Weight</li>
+                            <li> Become Healthy</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="block7_text_newright">
+
+                        <h2>VIOPHOTONICS </h2>
+                        <div class="h2devider"></div>
+                        <ul>
+                            <li>Strengthen Willpower</li>
+                            <li>Increase Mental Control</li>
+                            <li>Gain Healthy Mindset</li>
+                            <li>Practice Energetic Healing</li>
+                        </ul>
+
+                    </div>
+
+
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
     </div>
 </div>
 
-<div class="container-fluid aff_block11">
+<!--<div class="container-fluid aff_block11">
     <div class="container affblock11wrapper">
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 affblock11wrapperleft">
@@ -634,7 +699,6 @@ $landing_page->refill_form();
                 </div>
                 <div class="aff_block11main_wrapper">
                     <div class="block11_textwrapper">
-
                         <div class="topblockimg8_text">
                             <ul>
                                 <li>IMPROVE YOUR DIET</li>
@@ -644,16 +708,7 @@ $landing_page->refill_form();
                             </ul>
                         </div>
                         <img src="system/themes/awaken_and_revive/images/block8_text2left.png" class="block8_text2left">
-                        <img src="system/themes/awaken_and_revive/images/cbdbg8left.png" class="block8_text2smlleft">
-
-                        <!-- <div class="topblockimg11_text">
-                             <ul>
-                                 <li>IMPROVE YOUR DIET</li>
-                                 <li>LOSE WEIGHT</li>
-                                 <li>NURTURE YOUR BODY</li>
-                                 <li>NUTRITIONAL EDUCATION</li>
-                             </ul>
-                         </div>-->
+                        <img src="system/themes/awaken_and_revive/images/cbdbg8left_sml.png" class="block8_text2smlleft">
                     </div>
                 </div>
             </div>
@@ -663,14 +718,6 @@ $landing_page->refill_form();
                 </div>
                 <div class="aff_block11main_wrapper">
                     <div class="block11_textwrapper">
-                        <!-- <div class="topblockimg11_text">
-                             <ul>
-                                 <li>GAIN ENLIGHTENMENT</li>
-                                 <li>EXPERIENCE MENTAL CLARITY</li>
-                                 <li>CONNECT WITH THE FIELD</li>
-                                 <li>STRENGTHEN WILLPOWER</li>
-                             </ul>
-                         </div>-->
                         <div class="topblockimg8_text">
                             <ul>
                                 <li>GAIN ENLIGHTENMENT</li>
@@ -686,7 +733,7 @@ $landing_page->refill_form();
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 
 <!--<div class="container-fluid awakencbdblock7">

@@ -372,6 +372,9 @@ foreach ($price_arr as $val){
         }
 
     });
+    $(window).load(function () {
+        $('#pbtn54').click();
+    });
 
 </script>
 
@@ -407,80 +410,10 @@ foreach ($price_arr as $val){
     </div>
 
 
-<div class="vcproduct_block_newwrapper">
+    <div class="vcproduct_block_newwrapper">
 
-<?php if(count($product1)>0){
 
-    ?>
 
-    <div class="vcproduct_block_table">
-        <table width="100%" border="0">
-            <tr>
-                <th colspan="2"><?php echo $product1['title'] ?></th>
-            </tr>
-
-            <tr>
-                <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product1['img_url'] ?>">
-                   <!-- <img class="img-responsive" src="system/themes/awaken_and_revive/images/balance_pro1.png">-->
-                </td>
-                <td align="center" valign="middle" class="balance_pro_text">
-                    <h2>Buy 1</h2>
-                    <h3> $<?php echo $product1['price'] ?></h3>
-
-                    <input class="pselbtn" id="pbtn<?php echo $product1['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product1['title'] ?>" pprice="<?php echo $product1['price'] ?>" stock_item_id="<?php echo $product1['stock_item_id'] ?>">
-
-                </td>
-            </tr>
-        </table>
-
-  </div>
-    <?php }?>
-    <?php if(count($product2)>0){
-    ?>
-    <div class="vcproduct_block_table">
-        <table width="100%" border="0">
-            <tr>
-                <th colspan="2"><?php echo $product2['title'] ?></th>
-            </tr>
-
-            <tr>
-                <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product2['img_url'] ?>"></td>
-                <td align="center" valign="middle" class="balance_pro_text">
-
-                    <h3> $<?php echo number_format($product2['price'], 2, '.', ''); ?></h3>
-                    <h4>Only pay </h4>
-                    <h5>$<?php echo number_format($product2['price']/3, 2, '.', '') ?>  </h5>
-                    <h6>Per Program! </h6>
-                    <input class="pselbtn" id="pbtn<?php echo $product2['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product2['title'] ?>" pprice="<?php echo $product2['price'] ?>" stock_item_id="<?php echo $product2['stock_item_id'] ?>">
-                </td>
-            </tr>
-        </table>
-
-    </div>
-    <?php }?>
-    <?php if(count($product3)>0){
-    ?>
-    <div class="vcproduct_block_table">
-        <table width="100%" border="0">
-            <tr>
-                <th colspan="2"><?php echo $product3['title'] ?> </th>
-            </tr>
-
-            <tr>
-                <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product3['img_url'] ?>"></td>
-                <td align="center" valign="middle" class="balance_pro_text">
-
-                    <h3> $<?php echo number_format($product3['price'], 2, '.', ''); ?></h3>
-                    <h4>Only pay </h4>
-                    <h5>$<?php echo number_format($product3['price']/5, 2, '.', '') ?>  </h5>
-                    <h6>Per Program! </h6>
-                    <input class="pselbtn" id="pbtn<?php echo $product3['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product3['title'] ?>" pprice="<?php echo $product3['price'] ?>" stock_item_id="<?php echo $product3['stock_item_id'] ?>">
-                </td>
-            </tr>
-        </table>
-
-  </div>
-    <?php }?>
 
     <?php if(count($product4)>0){
         ?>
@@ -507,28 +440,105 @@ foreach ($price_arr as $val){
 
         </div>
     <?php }?>
-  <!--  <div class="vcproduct_block_table">
-        <table width="100%" border="0">
-            <tr>
-                <th colspan="2">Buy 4 Get 3 Free </th>
-            </tr>
+    <?php if(count($product3)>0){
+        ?>
+        <div class="vcproduct_block_table">
+            <table width="100%" border="0">
+                <tr>
+                    <th colspan="2"><?php echo $product3['title'] ?> </th>
+                </tr>
 
-            <tr>
-                <td align="center" valign="middle" class="balance_pro_img "> <img class="img-responsive" src="system/themes/awaken_and_revive/images/balance_pro4.png">
-                <label>BEST VALUE</label>
-                </td>
-                <td align="center" valign="middle" class="balance_pro_text">
+                <tr>
+                    <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product3['img_url'] ?>"></td>
+                    <td align="center" valign="middle" class="balance_pro_text">
 
-                    <h3> $249.80</h3>
-                    <h4>Only pay </h4>
-                    <h5>$35.68</h5>
-                    <h6>Per Program! </h6>
-                    <input type="button" value="Select">
-                </td>
-            </tr>
-        </table>
+                        <h3> $<?php echo number_format($product3['price'], 2, '.', ''); ?></h3>
+                        <h4>Only pay </h4>
+                        <h5>$<?php echo number_format($product3['price']/5, 2, '.', '') ?>  </h5>
+                        <h6>Per Program! </h6>
+                        <input class="pselbtn" id="pbtn<?php echo $product3['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product3['title'] ?>" pprice="<?php echo $product3['price'] ?>" stock_item_id="<?php echo $product3['stock_item_id'] ?>">
+                    </td>
+                </tr>
+            </table>
 
-    </div>-->
+        </div>
+    <?php }?>
+
+
+    <?php if(count($product2)>0){
+        ?>
+        <div class="vcproduct_block_table">
+            <table width="100%" border="0">
+                <tr>
+                    <th colspan="2"><?php echo $product2['title'] ?></th>
+                </tr>
+
+                <tr>
+                    <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product2['img_url'] ?>"></td>
+                    <td align="center" valign="middle" class="balance_pro_text">
+
+                        <h3> $<?php echo number_format($product2['price'], 2, '.', ''); ?></h3>
+                        <h4>Only pay </h4>
+                        <h5>$<?php echo number_format($product2['price']/3, 2, '.', '') ?>  </h5>
+                        <h6>Per Program! </h6>
+                        <input class="pselbtn" id="pbtn<?php echo $product2['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product2['title'] ?>" pprice="<?php echo $product2['price'] ?>" stock_item_id="<?php echo $product2['stock_item_id'] ?>">
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    <?php }?>
+
+    <?php if(count($product1)>0){
+
+        ?>
+
+        <div class="vcproduct_block_table">
+            <table width="100%" border="0">
+                <tr>
+                    <th colspan="2"><?php echo $product1['title'] ?></th>
+                </tr>
+
+                <tr>
+                    <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product1['img_url'] ?>">
+                        <!-- <img class="img-responsive" src="system/themes/awaken_and_revive/images/balance_pro1.png">-->
+                    </td>
+                    <td align="center" valign="middle" class="balance_pro_text">
+                        <h2>Buy 1</h2>
+                        <h3> $<?php echo $product1['price'] ?></h3>
+
+                        <input class="pselbtn" id="pbtn<?php echo $product1['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product1['title'] ?>" pprice="<?php echo $product1['price'] ?>" stock_item_id="<?php echo $product1['stock_item_id'] ?>">
+
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    <?php }?>
+
+
+    <!--  <div class="vcproduct_block_table">
+          <table width="100%" border="0">
+              <tr>
+                  <th colspan="2">Buy 4 Get 3 Free </th>
+              </tr>
+
+              <tr>
+                  <td align="center" valign="middle" class="balance_pro_img "> <img class="img-responsive" src="system/themes/awaken_and_revive/images/balance_pro4.png">
+                  <label>BEST VALUE</label>
+                  </td>
+                  <td align="center" valign="middle" class="balance_pro_text">
+
+                      <h3> $249.80</h3>
+                      <h4>Only pay </h4>
+                      <h5>$35.68</h5>
+                      <h6>Per Program! </h6>
+                      <input type="button" value="Select">
+                  </td>
+              </tr>
+          </table>
+
+      </div>-->
 
 
 
@@ -536,9 +546,6 @@ foreach ($price_arr as $val){
 
 
 </div>
-
-
-
 
 </div>
 
@@ -805,5 +812,6 @@ foreach ($price_arr as $val){
 </div>
 
 </div>
+
 
 

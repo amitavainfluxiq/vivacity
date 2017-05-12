@@ -69,7 +69,7 @@ if(isset($landing_page->session['form_data']['pid'])){
 }
 
 if(util_is_POST()) {
-    $landing_page->set_shipping_amt($_POST['shipping']);
+    $landing_page->set_shipping_amt(@$_POST['shipping']);
 
     $util_rep_id = 100;
 
@@ -250,7 +250,16 @@ function after_saveorder($userid,$util_rep_id,$orderid){
         $o_res = db_query("SELECT `o`.`userID`,`o`.`date_added`,`o`.`billing_addr`,`o`.`shipping_addr`,`o`.`shipping`,`o`.`tax`,`o`.`total`,`od`.* FROM `orders` `o` INNER JOIN `order_details` `od` ON `o`.`order_id` = `od`.`order_id` WHERE `o`.`order_id` = ".$orderid);
 
         $order = db_fetch_assoc($o_res);
-
+//echo '<pre>';
+       // print_r($order);
+       // echo '</pre>';
+        //echo $order['product_id'];
+        $exmsg='';
+        if($order['product_id']==32 || $order['product_id']==33 || $order['product_id']==34|| $order['product_id']==35 || $order['product_id']==23){
+            $exmsg = 'Please Note:  The charge for your CBD product will show as Nature\'s Oil on your CC statement.
+';
+        }
+        //echo $exmsg;exit;
         $billing_addr = $order['billing_addr'];
         $billing_addr = unserialize($billing_addr);
 
@@ -281,6 +290,7 @@ function after_saveorder($userid,$util_rep_id,$orderid){
         $vars['subtotal'] = $p_total;
         $vars['shipping'] = $shipping;
         $vars['$tax'] = $tax;
+        $vars['exmsg'] = $exmsg;
 
         $defaults = array();
 
@@ -368,6 +378,11 @@ foreach ($price_arr as $val){
 
     });
 
+
+    $(window).load(function () {
+       $('#pbtn58').click();
+    });
+
 </script>
 
 
@@ -401,73 +416,6 @@ foreach ($price_arr as $val){
 
         <div class="vcproduct_block_newwrapper">
 
-
-            <?php if(count($product1)>0){?>
-                <div class="vcproduct_block_table">
-                    <table width="100%" border="0">
-                        <tr>
-                            <th colspan="2"><?php echo $product1['title']?></th>
-                        </tr>
-
-                        <tr>
-                            <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product1['img_url']?>"></td>
-                            <td align="center" valign="middle" class="balance_pro_text">
-                                <h2>Buy 1</h2>
-                                <h3> $<?php echo number_format($product1['price'], 2, '.', ''); ?></h3>
-
-                                <input  class="pselbtn" id="pbtn<?php echo $product1['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product1['title'] ?>" pprice="<?php echo $product1['price'] ?>" stock_item_id="<?php echo $product1['stock_item_id'] ?>">
-
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
-            <?php }?>
-            <?php if(count($product2)>0){?>
-                <div class="vcproduct_block_table">
-                    <table width="100%" border="0">
-                        <tr>
-                            <th colspan="2"><?php echo $product2['title'] ?></th>
-                        </tr>
-
-                        <tr>
-                            <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product2['img_url'] ?>"></td>
-                            <td align="center" valign="middle" class="balance_pro_text">
-
-                                <h3> $<?php echo number_format($product2['price'], 2, '.', ''); ?></h3>
-                                <h4>Only pay </h4>
-                                <h5>$<?php echo number_format($product2['price']/3, 2, '.', '') ?>  </h5>
-                                <h6>Per bottle!</h6>
-                                <input   class="pselbtn" id="pbtn<?php echo $product2['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product2['title'] ?>" pprice="<?php echo $product2['price'] ?>" stock_item_id="<?php echo $product2['stock_item_id'] ?>">
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
-            <?php }?>
-            <?php if(count($product3)>0){?>
-
-                <div class="vcproduct_block_table">
-                    <table width="100%" border="0">
-                        <tr>
-                            <th colspan="2"><?php echo $product3['title'] ?></th>
-                        </tr>
-
-                        <tr>
-                            <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product3['img_url'] ?>"></td>
-                            <td align="center" valign="middle" class="balance_pro_text">
-
-                                <h3> $<?php echo number_format($product3['price'], 2, '.', ''); ?></h3>
-                                <h4>Only pay </h4>
-                                <h5>$<?php echo number_format($product3['price']/5, 2, '.', ''); ?> </h5>
-                                <h6>Per bottle!</h6>
-                                <input  class="pselbtn" id="pbtn<?php echo $product3['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product3['title'] ?>" pprice="<?php echo $product3['price'] ?>" stock_item_id="<?php echo $product3['stock_item_id'] ?>">
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
-            <?php }?>
             <?php if(count($product4)>0){?>
 
                 <div class="vcproduct_block_table">
@@ -498,6 +446,78 @@ foreach ($price_arr as $val){
 
 
 
+            <?php if(count($product3)>0){?>
+
+                <div class="vcproduct_block_table">
+                    <table width="100%" border="0">
+                        <tr>
+                            <th colspan="2"><?php echo $product3['title'] ?></th>
+                        </tr>
+
+                        <tr>
+                            <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product3['img_url'] ?>"></td>
+                            <td align="center" valign="middle" class="balance_pro_text">
+
+                                <h3> $<?php echo number_format($product3['price'], 2, '.', ''); ?></h3>
+                                <h4>Only pay </h4>
+                                <h5>$<?php echo number_format($product3['price']/5, 2, '.', ''); ?> </h5>
+                                <h6>Per bottle!</h6>
+                                <input  class="pselbtn" id="pbtn<?php echo $product3['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product3['title'] ?>" pprice="<?php echo $product3['price'] ?>" stock_item_id="<?php echo $product3['stock_item_id'] ?>">
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            <?php }?>
+            <?php if(count($product2)>0){?>
+                <div class="vcproduct_block_table">
+                    <table width="100%" border="0">
+                        <tr>
+                            <th colspan="2"><?php echo $product2['title'] ?></th>
+                        </tr>
+
+                        <tr>
+                            <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product2['img_url'] ?>"></td>
+                            <td align="center" valign="middle" class="balance_pro_text">
+
+                                <h3> $<?php echo number_format($product2['price'], 2, '.', ''); ?></h3>
+                                <h4>Only pay </h4>
+                                <h5>$<?php echo number_format($product2['price']/3, 2, '.', '') ?>  </h5>
+                                <h6>Per bottle!</h6>
+                                <input   class="pselbtn" id="pbtn<?php echo $product2['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product2['title'] ?>" pprice="<?php echo $product2['price'] ?>" stock_item_id="<?php echo $product2['stock_item_id'] ?>">
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            <?php }?>
+            <?php if(count($product1)>0){?>
+                <div class="vcproduct_block_table">
+                    <table width="100%" border="0">
+                        <tr>
+                            <th colspan="2"><?php echo $product1['title']?></th>
+                        </tr>
+
+                        <tr>
+                            <td align="center" valign="middle" class="balance_pro_img"> <img class="img-responsive" src="<?php echo $product1['img_url']?>"></td>
+                            <td align="center" valign="middle" class="balance_pro_text">
+                                <h2>Buy 1</h2>
+                                <h3> $<?php echo number_format($product1['price'], 2, '.', ''); ?></h3>
+
+                                <input  class="pselbtn" id="pbtn<?php echo $product1['stock_item_id'] ?>" type="button" value="Select" ptitle="<?php echo $product1['title'] ?>" pprice="<?php echo $product1['price'] ?>" stock_item_id="<?php echo $product1['stock_item_id'] ?>">
+
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            <?php }?>
+
+
+
+
+
+
         </div>
 
 
@@ -523,7 +543,7 @@ foreach ($price_arr as $val){
 
 
             <form name="landing_page" id="landing_page" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
-                <input type="hidden" name="bill_country" value="US">
+                <input type="hidden" id="bill_country" name="bill_country" value="US">
                 <input type="hidden" name="ship_country" value="US">
                 <input name="pid" type="hidden" value="" id="pid">
                 <input name="shipping" type="hidden" value="0" id="shipping">
@@ -680,7 +700,7 @@ foreach ($price_arr as $val){
                         <div class="formchakebox">
                             <input id="iagreetoitnew1" class="css-checkbox" name="bill_same_as_ship" value="1" type="checkbox">
                             <label class="css-label" for="iagreetoitnew1"></label>
-                            <span style="padding-top: 0px; color: #424242;">Use my billing address as my ship-to address</span>
+                            <span style="padding-top: 0px; color: #424242;">Bill Address is same as shipping address</span>
                             <div class="clearfix"></div>
                         </div>
                     </div>

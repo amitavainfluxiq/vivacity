@@ -1,9 +1,10 @@
 a{ text-decoration:none!important; outline: none!important;}
 
+
 .aboutusblock1 span.titleinfo2{
     color: #242424;
     font-family: "RalewayBold";
-    font-size: 30px;
+    font-size: 29px;
     margin: 0;
     text-transform: uppercase;
     line-height: 30px;
@@ -105,7 +106,7 @@ a{ text-decoration:none!important; outline: none!important;}
 
 .opportunity_block_con .opp_div4{ width:348px; float: right;  }
 
-.opportunity_block_con .opp_div4 a{ margin-top: 12px; width: 166px; height: 50px; border-radius: 4px; line-height: 45px; background: #fff; border:  solid 2px #006fdf; font-size: 16px; color: #006fdf; text-align: center;   font-family: 'RalewaySemiBold'; text-transform: uppercase; text-decoration: none!important;}
+.opportunity_block_con .opp_div4 a{ margin-top: 12px; width: 166px; height: 50px; border-radius: 4px; line-height: 48px; background: #fff; border:  solid 2px #688816; font-size: 16px; color: #688816; text-align: center;   font-family: 'RalewaySemiBold'; text-transform: uppercase; text-decoration: none!important;}
 .opportunity_block_con .opp_div4 .opplink_pro1{ display: block; float: left;}
 .opportunity_block_con .opp_div4 .opplink_pro2{ display: block; float: right;}
 
@@ -134,8 +135,30 @@ a{ text-decoration:none!important; outline: none!important;}
 
 .opportunity_btnwrapper{ width: 380px; margin: 0 auto; margin-top:25px;}
 
-.opportunity_btnwrapper input{ width: 170px!important; margin: 0 9px!important; height: 46px!important; border:solid 2px #000000!important; border-radius: 4px!important; background: #fff!important; text-align: center!important; line-height: 35px!important; font-size: 16px!important; color: #000000!important; text-transform: uppercase!important;      font-family: 'RalewaySemiBold'!important; box-shadow: none!important;}
+/*.opportunity_btnwrapper input{width: 170px!important; margin: 0 9px!important; height: 46px!important; border:solid 2px #000000!important; border-radius: 4px!important; background: #fff!important; text-align: center!important; line-height: 35px!important; font-size: 16px!important; color: #000000!important; text-transform: uppercase!important;      font-family: 'RalewaySemiBold'!important; box-shadow: none!important;}*/
+.btnform{ margin-top: 25px !important;}
 
+.opportunity_btnwrapper input{
+    width: 170px !important;
+    margin: 0 9px !important;
+    height: 54px !important;
+    border: solid 2px #000000 !important;
+    border-radius: 0px !important;
+    text-align: center !important;
+    line-height: 30px !important;
+    color: rgb(230, 230, 230) !important;
+    font-size: 24px !important;
+    text-transform: capitalize !important;
+    font-family: "OpenSans" !important;
+    box-shadow: none !important;
+    background: rgb(45, 45, 45) !important;
+    background: -moz-linear-gradient(270deg, rgb(45, 45, 45) 30%, rgb(1, 1, 1) 70%) !important;
+    background: -webkit-linear-gradient(270deg, rgb(45, 45, 45) 30%, rgb(1, 1, 1) 70%) !important;
+    background: -o-linear-gradient(270deg, rgb(45, 45, 45) 30%, rgb(1, 1, 1) 70%) !important;
+    background: -ms-linear-gradient(270deg, rgb(45, 45, 45) 30%, rgb(1, 1, 1) 70%) !important;
+    background: linear-gradient(180deg, rgb(45, 45, 45) 30%, rgb(1, 1, 1) 70%) !important;
+    text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8) !important;
+}
 
 .cannabinoides_top_banner{ display: block; width: 100%;}
 
@@ -309,33 +332,81 @@ a{ text-decoration:none!important; outline: none!important;}
 
 .new_homeimg{ width: 480px; margin-top: 0px; float: right;}
 
+/*
 .homeblock2wrapper {
     padding-left: 210px !important;
 
 }
-
+*/
+.homeblock2wrapper .homeblock2videocontent{
+    padding-right: 0px !important;
+}
+.new_homeimg2{
+    width: 570px;
+    position: absolute;
+    top: 0px;
+    right: 16%;
+}
+.homeblock2wrapper{
+    width: 1280px!important;
+    padding: 0px!important;
+    margin: 0 auto!important;
+}
 
 .bynowopponew{ background: #006fdf!important; color: #fff!important;}
+
+
+
+
+
+
+
+
+
+
+
 
 /*================================================================================================*/
 /*========================================== Media Css  ==========================================*/
 /*================================================================================================*/
 
 @media only screen and (max-width: 1680px) {
-    .homeblock2wrapper {
+    /*.homeblock2wrapper {
         padding-left: 150px !important;
+    }*/
+    .new_homeimg2 {
+        right:10%;
     }
-
-
 }
+
+@media only screen and (max-width: 1600px) {
+    .new_homeimg2 {
+        right: 9%;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .new_homeimg2 {
+        right: 5%;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .new_homeimg2 {
+        right: 2%;
+    }
+}
+
+
 
 @media only screen and (max-width: 1360px) {
     .new_homeimg{ width: 430px; margin-top: 0px; float: right;}
 
-    .homeblock2wrapper {
+   /* .homeblock2wrapper {
         padding-left: 100px !important;
+    }*/
+    .new_homeimg2 {
+        right: 0%;
     }
-
 }
 
 @media only screen and (max-width: 1300px) {
@@ -366,7 +437,7 @@ a{ text-decoration:none!important; outline: none!important;}
         padding-left: 0px !important;
     }
 
-    .homeblock2content{ width: 100%!important; padding-top: 25px!important;}
+    .homeblock2content{ width: 50%!important;}
 
     .homeblock2{ padding-bottom: 0px!important;}
 
@@ -375,9 +446,67 @@ a{ text-decoration:none!important; outline: none!important;}
     .homeblock2videocontent{ width: 100%!important; margin: 0!important; padding: 0!important; text-align: center;}
 
 }
+@media only screen and (max-width: 1280px) {
 
+    .opportunity_block_con .opp_div1 {
+        width: 260px !important;
+        float: left !important;
+    }
+
+    .opportunity_block_con .opp_div2 {
+        float: left;
+        padding: 0 10px;
+        width: 340px;
+    }
+
+    .opportunity_block_con .opp_div3 {
+        float: left;
+        min-height: 320px;
+        padding: 20px 15px;
+        width: 260px;
+    }
+
+}
 
 @media only screen and (max-width: 1260px) {
+    .opportunity_block_con .opp_div1 {
+        float: none !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .opportunity_block_con .opp_div2 {
+        float: none !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 25px auto !important;
+    }
+
+    .opportunity_block_con .opp_div3 {
+        float: none !important;
+        width: 100% !important;
+        text-align: center;
+        margin: 25px auto;
+        min-height: inherit;
+    }
+
+    .opportunity_block_con .opp_div4 {
+        float: none !important;
+        width: 348px;
+        margin: 0 auto;
+    }
+
+
+}
+
+@media only screen and (max-width: 1260px) {
+    .aboutusblock1 span.titleinfo2 {
+        text-align: center;
+    }
+    .aboutusblock1 span.titleinfo2:after {
+        margin-left: auto;
+        margin-right: auto;
+    }
     .opportunity_block_con .opp_div1 img{ max-width: inherit; width: 280px!important;}
 
 .cannabinoides_block3_left {
@@ -403,52 +532,13 @@ a{ text-decoration:none!important; outline: none!important;}
 }
 
 
-@media only screen and (max-width: 1280px) {
-    .opportunity_block_con .opp_div1 {
-        float: left;
-        width: 280px;
-    }
 
-    .opportunity_block_con .opp_div2 {
-        float: left;
-        padding: 0 10px;
-        width: 340px;
-    }
-
-    .opportunity_block_con .opp_div3 {
-        float: left;
-        min-height: 320px;
-        padding: 20px 15px;
-        width: 260px;
-    }
-
-}
-
-@media only screen and (max-width: 1260px) {
-    .opportunity_block_con .opp_div1 {
-        float: none;
-        width: 100%; text-align: center;
-    }
-
-    .opportunity_block_con .opp_div2 {
-        float: none;
-        width: 100%; text-align: center; margin: 25px auto;
-    }
-
-    .opportunity_block_con .opp_div3 {
-        float: none;
-        width: 100%; text-align: center;  margin: 25px auto; min-height: inherit;
-    }
-
-    .opportunity_block_con .opp_div4 {
-        float: none;
-        width: 348px; margin: 0 auto;
-    }
-
-
-}
 
 @media only screen and (max-width: 1199px) {
+    .homeblock2content {
+        width: 100% !important;
+        text-align: center;
+    }
 
 
     .cannabinoides_wrapper2 .cannabinoides_block2_left {
@@ -541,7 +631,7 @@ a{ text-decoration:none!important; outline: none!important;}
 
 .paymentmode img{ margin-bottom: 4px;}
 
-    .cardexpiredblock select{ width: 40%;}
+ /*   .cardexpiredblock select{ width: 40%;}*/
 
     .opportunity_block_con .opp_div4 .opplink_pro1{ float: none; margin: 0 auto; margin-top: 20px;}
     .opportunity_block_con .opp_div4 .opplink_pro2{ float: none; margin: 0 auto; margin-top: 20px;}

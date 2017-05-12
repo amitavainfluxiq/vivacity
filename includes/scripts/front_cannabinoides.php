@@ -7,18 +7,44 @@
 
 <div class="container-fluid innerpagetitleblock text-center">
 <div class="innerpagetitleblockwrapper">
-    <h1>cannabinoides</h1>
+    <h1>Cannabinoids</h1>
 </div>
 </div>
 
 <div class="container-fluid">
     <div class="container containerwrapper">
-        <img src="system/themes/vivacity_frontend/images/cannabinoides_top_banner.jpg" class="cannabinoides_top_banner">
+        <!--<img src="system/themes/vivacity_frontend/images/cannabinoides_top_banner.jpg" class="cannabinoides_top_banner">
 
         <h6 class="cannabinoides_h6text">Xcellence is often found in its raw form and that is certainly true when it comes to plants. We’re talking about the incredible health-promoting properties of an entourage of cannabinoid spectrum whole food supplements. The number of benefits provided by cannabinoids continues to grow as advancements in scientific research progress. Individually, these cannabinoids are powerful forces that counteract many common conditions. CBD is a single molecule that can do amazing things when connected to the rest of the spectrum. Combining full spectrum cannabinoids is the ultimate X-factor for enhancing and
             stabilizing your health.
             <br/> <br/>
-            Vivacity supports the numerous and effective medicinal benefits of cannabinoid spectrum whole food supplements. All Vivacity products featuring cannabinoid spectrum whole food supplements pass federal regulations. </h6>
+            Vivacity supports the numerous and effective medicinal benefits of cannabinoid spectrum whole food supplements. All Vivacity products featuring cannabinoid spectrum whole food supplements pass federal regulations. </h6>-->
+
+
+        <div class="container cannabinoidbanner_divblock1">
+
+
+
+            <img src="system/themes/vivacity_frontend/images/cannabinoid-bannersml-img1.jpg" class="cannabinoidbanner_img1">
+
+            <table width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="table_div1">
+                                <h1>incredible health-promotion</h1>
+                                <h2>Xcellence is often found in its raw form and that is certainly true when it comes to plants.</h2>
+                                <h3>The number of benefits provided by cannabinoids continues to grow as advancements in scientific research progress. Individually, these cannabinoids are powerful forces that counteract many common conditions. CBD is a single molecule that can do amazing things when connected to the rest of the spectrum. Combining full spectrum cannabinoids is the ultimate X-factor for enhancing and stabilizing your health.<br/><br/>
+                                    Vivacity supports the numerous and effective medicinal benefits of cannabinoid spectrum whole food supplements. All Vivacity products featuring cannabinoid spectrum whole food supplements pass federal regulations.
+                                    <div class="clearfix"></div>
+                                </h3>
+                            </div>
+                            <div class="clearfix"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 
         <div class="cannabinoides_wrapper2">
@@ -68,7 +94,7 @@
                     <li> Chronic Pain Relief</li>
                 </ul>
 
-               <a href="javascript:void(0)" class="cul_buynow">bUY nOW</a>
+               <a href="product-details/22/xcellerate" class="cul_buynow">bUY nOW</a>
 
                 </div>
 
